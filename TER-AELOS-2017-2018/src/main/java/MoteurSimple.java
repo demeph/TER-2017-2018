@@ -1,4 +1,5 @@
 import lejos.robotics.RegulatedMotor;
+import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 
@@ -12,14 +13,26 @@ public class MoteurSimple extends Moteur {
 	}
 	
 	public void pousser() {
-		mA.forward();
-		mA.setSpeed(100);
+		mA.rotate(45);
+		mA.setSpeed(10);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		setEtat(EtatMoteur.Enpousee);
 	}
 	
 	public void tirer() {
-		mA.backward();
+		mA.forward();
 		mA.setSpeed(100);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		setEtat(EtatMoteur.Entiree);
 	}
 	

@@ -15,13 +15,41 @@ public class Porte {
 	private ControleurDePorte ctrl;
 	
 	
-	public Porte(Moteur mt,ControleurDePorte ctrl) {
+	public Porte(Moteur mt/*,ControleurDePorte ctrl*/) {
 		this.etatCourant = etatPorte.PorteFermee;
 		this.etatPrecedent = this.etatCourant;
 		this.mt = mt; //ex:  new MoteurSimple(this)
-		this.ctrl = ctrl;
+		//this.ctrl = ctrl;
 	}
 	
+	/**
+	 * @return the etatPrecedent
+	 */
+	public etatPorte getEtatPrecedent() {
+		return etatPrecedent;
+	}
+
+	/**
+	 * @param etatPrecedent the etatPrecedent to set
+	 */
+	public void setEtatPrecedent(etatPorte etatPrecedent) {
+		this.etatPrecedent = etatPrecedent;
+	}
+
+	/**
+	 * @return the ctrl
+	 */
+	public ControleurDePorte getCtrl() {
+		return ctrl;
+	}
+
+	/**
+	 * @param ctrl the ctrl to set
+	 */
+	public void setCtrl(ControleurDePorte ctrl) {
+		this.ctrl = ctrl;
+	}
+
 	/**
 	 * @return the etatCourant
 	 */
@@ -52,7 +80,7 @@ public class Porte {
 			this.etatCourant = etatPorte.enOuverture;
 			this.etatPrecedent = this.etatCourant;
 			//moteur tire
-			//mt.tirer();	
+			mt.tirer();	
 		}
 	}
 	
@@ -61,7 +89,7 @@ public class Porte {
 			this.etatCourant = etatPorte.enFermeture;
 			this.etatPrecedent = this.etatCourant;
 			//moteur pousse
-			//mt.pousser();
+			mt.pousser();
 		}
 	}
 	
@@ -69,7 +97,7 @@ public class Porte {
 		if (this.etatCourant != etatPorte.PorteArrete) {
 			this.etatCourant = etatPorte.PorteArrete;
 			this.etatPrecedent = this.etatCourant;
-			//mt.stoppe();
+			mt.stop();
 		}
 	}
 	public void fermee() {
@@ -83,26 +111,26 @@ public class Porte {
 		this.etatCourant = etatPorte.PorteOuverte;
 		this.etatPrecedent = this.etatCourant;
 		//moteur arrete
-		//mt.arreter();
+		mt.arreter();
 	}
 	
 	public void bloque() {
 		this.etatPrecedent = this.etatCourant;
 		this.etatCourant = etatPorte.PorteBloquee;
 		//moteur stoppe
-		//mt.stoppe();
+		mt.stop();
 	}
 	
 	public void reprend() {
 		this.etatCourant = this.etatPrecedent;
 		if (this.etatPrecedent == etatPorte.enFermeture) {
 			//moteur pousse
-			//mt.pousser();
+			mt.pousser();
 		} else if (this.etatPrecedent == etatPorte.enOuverture) {
 			//moteur tire
-			//mt.tirer()
+			mt.tirer();
 		} else if (this.etatPrecedent == etatPorte.PorteArrete) {
-			//mt.stoppe();
+			mt.stop();
 		}
 	}
 		

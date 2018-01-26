@@ -1,3 +1,5 @@
+import lejos.hardware.lcd.LCD;
+
 /**
  *  
  */
