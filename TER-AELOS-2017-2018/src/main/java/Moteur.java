@@ -4,19 +4,40 @@ enum EtatMoteur {
 	Arret,
 };
 
+
+/**
+ * 
+ * @author Deme, Loic, Clément
+ *
+ */
 public abstract class Moteur {
-	private EtatMoteur etat;
+	private EtatMoteur _etat;
 	
 	public void setEtat(EtatMoteur a) {
-		etat = a;
+		this._etat = a;
 	}
 	
 	public Moteur() {
-		etat = EtatMoteur.Arret;
+		this._etat = EtatMoteur.Arret;
 	}
 	
-	public abstract void pousser();
-	public abstract void tirer();
-	public abstract void arreter();
-	public abstract void stop();
+	/**
+	 * Modélise un mouvement de poussée du moteur qui va se traduire par un .forward()
+	 */
+	abstract void pousser();
+	
+	/**
+	 * Modélise un mouvement de poussée du moteur qui va se traduire par un .backward()
+	 */
+	abstract void tirer();
+	
+	/**
+	 * Coupe le moteur .close()
+	 */
+	abstract void arreter();
+	
+	/**
+	 * Met la vitesse du moteur à 0
+	 */
+	abstract void stop();
 }

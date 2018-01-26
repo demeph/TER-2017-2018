@@ -7,130 +7,138 @@ enum etatPorte {
 	PorteArrete,
 };
 
-
-public class Porte {
-	private etatPorte etatCourant;
-	private etatPorte etatPrecedent;
-	private Moteur mt;
-	private ControleurDePorte ctrl;
+/**
+ * 
+ * @author Demna
+ *
+ */
+class Porte {
+	private etatPorte _etatCourant;
+	private etatPorte _etatPrecedent;
+	private Moteur _mt;
+	private ControleurDePorte _ctrl;
 	
 	
-	public Porte(Moteur mt/*,ControleurDePorte ctrl*/) {
-		this.etatCourant = etatPorte.PorteFermee;
-		this.etatPrecedent = this.etatCourant;
-		this.mt = mt; //ex:  new MoteurSimple(this)
+	Porte(Moteur mt/*,ControleurDePorte ctrl*/) {
+		this._etatCourant = etatPorte.PorteFermee;
+		this._etatPrecedent = this._etatCourant;
+		this._mt = mt; //ex:  new MoteurSimple(this)
 		//this.ctrl = ctrl;
 	}
 	
-	/**
-	 * @return the etatPrecedent
-	 */
-	public etatPorte getEtatPrecedent() {
-		return etatPrecedent;
+	etatPorte getEtatPrecedent() {
+		return _etatPrecedent;
 	}
 
-	/**
-	 * @param etatPrecedent the etatPrecedent to set
-	 */
-	public void setEtatPrecedent(etatPorte etatPrecedent) {
-		this.etatPrecedent = etatPrecedent;
+	void setEtatPrecedent(etatPorte etatPrecedent) {
+		this._etatPrecedent = etatPrecedent;
 	}
 
-	/**
-	 * @return the ctrl
-	 */
-	public ControleurDePorte getCtrl() {
-		return ctrl;
+	ControleurDePorte getCtrl() {
+		return _ctrl;
 	}
 
-	/**
-	 * @param ctrl the ctrl to set
-	 */
-	public void setCtrl(ControleurDePorte ctrl) {
-		this.ctrl = ctrl;
+	void setCtrl(ControleurDePorte ctrl) {
+		this._ctrl = ctrl;
 	}
 
-	/**
-	 * @return the etatCourant
-	 */
-	public etatPorte getEtatCourant() {
-		return etatCourant;
+	etatPorte getEtatCourant() {
+		return _etatCourant;
 	}
-	/**
-	 * @param etatCourant the etatCourant to set
-	 */
-	public void setEtatCourant(etatPorte etatCourant) {
-		this.etatCourant = etatCourant;
-	}
-	/**
-	 * @return the mt
-	 */
-	public Moteur getMt() {
-		return mt;
-	}
-	/**
-	 * @param mt the mt to set
-	 */
-	public void setMt(Moteur mt) {
-		this.mt = mt;
+
+	void setEtatCourant(etatPorte etatCourant) {
+		this._etatCourant = etatCourant;
 	}
 	
-	public void ouvre() {
-		if (this.etatCourant != etatPorte.PorteOuverte) {
-			this.etatCourant = etatPorte.enOuverture;
-			this.etatPrecedent = this.etatCourant;
+	Moteur getMt() {
+		return _mt;
+	}
+	
+
+	void setMt(Moteur mt) {
+		this._mt = mt;
+	}
+	
+	
+	/**
+	 * Ouvre la porte : change l'état et appelle le moteur
+	 */
+	void ouvre() {
+		if (this._etatCourant != etatPorte.PorteOuverte) {
+			this._etatCourant = etatPorte.enOuverture;
+			this._etatPrecedent = this._etatCourant;
 			//moteur tire
-			mt.tirer();	
+			_mt.tirer();	
 		}
 	}
 	
-	public void ferme() {
-		if (this.etatCourant != etatPorte.PorteFermee) {
-			this.etatCourant = etatPorte.enFermeture;
-			this.etatPrecedent = this.etatCourant;
+	/**
+	 * Ferme la porte : passe l'état à "EnFermeture" et appelle le moteur
+	 */
+	void ferme() {
+		if (this._etatCourant != etatPorte.PorteFermee) {
+			this._etatCourant = etatPorte.enFermeture;
+			this._etatPrecedent = this._etatCourant;
 			//moteur pousse
-			mt.pousser();
+			_mt.pousser();
 		}
 	}
 	
-	public void pause() {
-		if (this.etatCourant != etatPorte.PorteArrete) {
-			this.etatCourant = etatPorte.PorteArrete;
-			this.etatPrecedent = this.etatCourant;
-			mt.stop();
+	/**
+	 * Stop le mouvement de la porte : passe l'état à "PorteArreté" et appelle le moteur
+	 */
+	void pause() {
+		if (this._etatCourant != etatPorte.PorteArrete) {
+			this._etatCourant = etatPorte.PorteArrete;
+			this._etatPrecedent = this._etatCourant;
+			_mt.stop();
 		}
 	}
-	public void fermee() {
-		this.etatCourant = etatPorte.PorteFermee;
-		this.etatPrecedent = this.etatCourant;
+	
+	/**
+	 * Passe l'état à "PorteFerme" et appelle le moteur 
+	 */
+	void fermee() {
+		this._etatCourant = etatPorte.PorteFermee;
+		this._etatPrecedent = this._etatCourant;
 		//moteur arrete
-		//mt.arreter();
+		_mt.stop();
 	}
 	
-	public void ouverte() {
-		this.etatCourant = etatPorte.PorteOuverte;
-		this.etatPrecedent = this.etatCourant;
-		//moteur arrete
-		mt.arreter();
+	/**
+	 * Passe l'état à "PorteOuverte" et appelle le moteur
+	 */
+	void ouverte() {
+		this._etatCourant = etatPorte.PorteOuverte;
+		this._etatPrecedent = this._etatCourant;
+		//moteur stop
+		_mt.stop();
 	}
 	
-	public void bloque() {
-		this.etatPrecedent = this.etatCourant;
-		this.etatCourant = etatPorte.PorteBloquee;
-		//moteur stoppe
-		mt.stop();
+	/**
+	 * Bloque la porte : passe l'état à "Bloquée" et stop le moteur
+	 */
+	void bloque() {
+		this._etatPrecedent = this._etatCourant;
+		this._etatCourant = etatPorte.PorteBloquee;
+		//moteur coupe
+		_mt.stop();
 	}
 	
-	public void reprend() {
-		this.etatCourant = this.etatPrecedent;
-		if (this.etatPrecedent == etatPorte.enFermeture) {
+	/**
+	 * Reprend l'activité du moteur suivant l'état où il s'était arrêté
+	 * avant le bloquage
+	 */
+	void reprend() {
+		this._etatCourant = this._etatPrecedent;
+		if (this._etatPrecedent == etatPorte.enFermeture) {
 			//moteur pousse
-			mt.pousser();
-		} else if (this.etatPrecedent == etatPorte.enOuverture) {
+			_mt.pousser();
+		} else if (this._etatPrecedent == etatPorte.enOuverture) {
 			//moteur tire
-			mt.tirer();
-		} else if (this.etatPrecedent == etatPorte.PorteArrete) {
-			mt.stop();
+			_mt.tirer();
+		} else if (this._etatPrecedent == etatPorte.PorteArrete) {
+			_mt.stop();
 		}
 	}
 		

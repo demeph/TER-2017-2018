@@ -3,41 +3,44 @@ import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 
 
-public class MoteurDouble extends Moteur {
-	private RegulatedMotor mA;
-	private RegulatedMotor mB;
+class MoteurDouble extends Moteur {
+	private RegulatedMotor _mA;
+	private RegulatedMotor _mB;
 	
-	public MoteurDouble() {
+	MoteurDouble() {
 		super();
-		mA = new EV3LargeRegulatedMotor(MotorPort.A);
-		mB = new EV3LargeRegulatedMotor(MotorPort.B);
+		_mA = new EV3LargeRegulatedMotor(MotorPort.A);
+		_mB = new EV3LargeRegulatedMotor(MotorPort.B);
 	}
 	
-	public void pousser() {
-		mA.forward();
-		mA.setSpeed(100);
-		mB.forward();
-		mB.setSpeed(100);
+	@Override
+	void pousser() {
+		_mA.forward();
+		_mA.setSpeed(100);
+		_mB.forward();
+		_mB.setSpeed(100);
 		setEtat(EtatMoteur.Enpousee);
 	}
 	
-	public void tirer() {
-		mA.backward();
-		mA.setSpeed(100);
-		mB.backward();
-		mB.setSpeed(100);
+	@Override
+	void tirer() {
+		_mA.backward();
+		_mA.setSpeed(100);
+		_mB.backward();
+		_mB.setSpeed(100);
 		setEtat(EtatMoteur.Entiree);
 	}
 	
-	
-	public void arreter() {
-		mA.close();
-		mB.close();
+	@Override
+	void arreter() {
+		_mA.close();
+		_mB.close();
 		setEtat(EtatMoteur.Arret);
 	}
 	
-	public void stop() {
-		mA.setSpeed(0);
-		mB.setSpeed(0);
+	@Override
+	void stop() {
+		_mA.setSpeed(0);
+		_mB.setSpeed(0);
 	}
 }
