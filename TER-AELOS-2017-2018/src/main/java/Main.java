@@ -1,8 +1,8 @@
 import lejos.hardware.BrickFinder;
-import lejos.hardware.Button;
 import lejos.hardware.Keys;
 import lejos.hardware.ev3.EV3;
 import lejos.hardware.lcd.LCD;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -12,49 +12,32 @@ public class Main {
 		Porte pt = new Porte(mt);
 		ControleurDePorte cp = new ControleurDePorte(pt);
 		
-		
-		while (true) {
-
-			if (Button.DOWN.isDown()) {
-				try {
-					LCD.clear();
-					LCD.drawString("j'ouvre", 1, 1);
-					LCD.setAutoRefresh(false);
-					cp.ouvre();			
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					LCD.drawString(e.getMessage(), 0, 0);
+		Keys buttons = ev3.getKeys();
+		Boolean programmeFonctionne = true;
+		while (programmeFonctionne) {
+			try {
+				switch (buttons.getButtons()) {
+					case Keys.ID_UP:
+						cp.ouvre();
+						break;
+					case Keys.ID_DOWN:
+						cp.ferme();
+						break;
+					case Keys.ID_LEFT:
+						cp.urgence();
+						break;
+					case Keys.ID_RIGHT:
+						cp.repriseCle();
+						break;
+					case Keys.ID_ESCAPE:
+						programmeFonctionne = false;
+						break;
+					default:
+						break;
 				}
-			} else if (Button.UP.isDown()) {
-				try {
-					LCD.clear();
-					LCD.drawString("je ferme", 1, 1);
-					LCD.setAutoRefresh(false);
-					cp.ferme();			
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					LCD.drawString(e.getMessage(), 0, 0);
-				}
-			} else if (Button.LEFT.isDown()) {
-				try {
-					LCD.clear();
-					LCD.drawString("je suis en etat urgence", 1, 1);
-					LCD.setAutoRefresh(false);
-					cp.urgence();			
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					LCD.drawString(e.getMessage(), 0, 0);
-				}
-			} else if (Button.RIGHT.isDown()) {
-				try {
-					LCD.clear();
-					LCD.drawString("je reprend", 1, 1);
-					LCD.setAutoRefresh(false);
-					cp.repriseCle();			
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					LCD.drawString(e.getMessage(), 0, 0);
-				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				LCD.drawString(e.getMessage(), 0, 0);
 			}
 		}		
 	}

@@ -63,7 +63,7 @@ class ControleurDePorte
 			this._etatCourant = EtatControleur.EnAttente;
 			this._porte.pause();
 		}
-		else throw new Exception("error");
+		else throw new Exception("Pas dans etat ferme ou en ouverture");
 	}
 	
 	/**
@@ -100,7 +100,7 @@ class ControleurDePorte
 			this._etatCourant = EtatControleur.Urgence;
 			this._porte.bloque();
 		}
-		else throw new Exception("error");	
+		else throw new Exception("pas etat urgence");	
 	}
 
 	/**
