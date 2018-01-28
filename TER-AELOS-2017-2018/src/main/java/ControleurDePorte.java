@@ -8,7 +8,7 @@ enum EtatControleur {Fermee, EnOuverture, PorteOuverte, EnFermeture, EnAttente, 
 
 /**
  * Classe qui contrôle une porte
- * @author Loïc
+ * @author Deme, Loic, Clément
  * @version 1.0
  */
 class ControleurDePorte
@@ -16,6 +16,8 @@ class ControleurDePorte
 	private EtatControleur _etatCourant;
 	private EtatControleur _etatPrecedant; // dans le cas d'une urgence, permet de reprendre à l'état précédant
 	private Porte _porte;
+	private capteurType _po;
+	private capteurType _pf;
 	
 	
 	ControleurDePorte(Porte porte)
@@ -23,6 +25,9 @@ class ControleurDePorte
 		this._etatPrecedant = null;
 		this._etatCourant = EtatControleur.Fermee;
 		this._porte = porte;
+		//initialisation des capteur
+		this._po = capteurType.capteurPourOuverture;
+		this._pf = capteurType.capteurPourFermeture;
 	}
 	
 	EtatControleur getEtatCourant() { return this._etatCourant; }
@@ -40,9 +45,22 @@ class ControleurDePorte
 	/**
 	 *  
 	 */
-	void enregristreContact()
+	void enregristreContact(capteurType cp)
 	{
-		
+		if (this._po == cp) {
+			this._etatCourant = EtatControleur.PorteOuverte;
+			this._porte.ouverte();
+		} else if (this._pf == cp) {
+			this._etatCourant = EtatControleur.Fermee;
+			this._porte.fermee();
+		}else {
+			try {
+				this.urgence();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				LCD.drawString(e.getMessage(), 0, 0);
+			}
+		}
 	}
 	
 	/**

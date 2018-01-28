@@ -2,7 +2,11 @@ import lejos.robotics.RegulatedMotor;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 
-
+/**
+ * 
+ * @author Deme, Loic, Clément
+ *
+ */
 class MoteurSimple extends Moteur {
 	private RegulatedMotor _mA;
 	

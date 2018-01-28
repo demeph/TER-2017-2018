@@ -6,12 +6,21 @@ import lejos.hardware.ev3.EV3;
 
 public class MainBeta {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		EV3 ev3 = (EV3) BrickFinder.getDefault();
 		Moteur mt = new MoteurSimple();
 		Porte pt = new Porte(mt);
 		final ControleurDePorte cp = new ControleurDePorte(pt);
+		
+		Capteur po = new Capteur(capteurType.capteurPourOuverture);
+		po.set_ctrl(cp);
+		Capteur pf = new Capteur(capteurType.capteurPourFermeture);
+		pf.set_ctrl(cp);
+		
+		pf.start();
+		po.start();
 		
 		Button.UP.addKeyListener(new KeyListener() {
 			

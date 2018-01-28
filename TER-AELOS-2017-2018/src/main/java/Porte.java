@@ -9,7 +9,7 @@ enum etatPorte {
 
 /**
  * 
- * @author Demna
+ * @author Deme, Loic, Clément
  *
  */
 class Porte {

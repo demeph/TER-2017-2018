@@ -11,6 +11,7 @@ enum EtatMoteur {
  *
  */
 public abstract class Moteur {
+	@SuppressWarnings("unused")
 	private EtatMoteur _etat;
 	
 	public void setEtat(EtatMoteur a) {
