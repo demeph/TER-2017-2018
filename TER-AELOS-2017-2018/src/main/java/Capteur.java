@@ -19,11 +19,11 @@ public class Capteur extends Thread{
 	private EV3TouchSensor _touchSensor;
 
 	Capteur(capteurType typeCaptTactile){
-		if (typeCaptTactile == capteurType.capteurPourFermeture) {
+		if (typeCaptTactile.equals(capteurType.capteurPourFermeture)) {
 			this._touchSensor = new EV3TouchSensor(SensorPort.S1);
 			this._typeCapteur = typeCaptTactile;
 		}
-		else if (typeCaptTactile == capteurType.capteurPourOuverture) {
+		else if (typeCaptTactile.equals(capteurType.capteurPourOuverture)) {
 			this._touchSensor = new EV3TouchSensor(SensorPort.S2);
 			this._typeCapteur = typeCaptTactile;
 		}
@@ -43,7 +43,7 @@ public class Capteur extends Thread{
 			float[] sample = new float[size];
 			this._touchSensor.fetchSample(sample,0);
 			if (sample[0] == 1.0) {
-				this._ctrl.enregristreContact(this._typeCapteur);
+				this._ctrl.enregristreContact(this);
 			}
 		}
 	}

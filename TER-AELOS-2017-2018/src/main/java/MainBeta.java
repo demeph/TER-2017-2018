@@ -14,13 +14,8 @@ public class MainBeta {
 		Porte pt = new Porte(mt);
 		final ControleurDePorte cp = new ControleurDePorte(pt);
 		
-		Capteur po = new Capteur(capteurType.capteurPourOuverture);
-		po.set_ctrl(cp);
-		Capteur pf = new Capteur(capteurType.capteurPourFermeture);
-		pf.set_ctrl(cp);
-		
-		pf.start();
-		po.start();
+		cp.get_pf().start();
+		cp.get_po().start();
 		
 		Button.UP.addKeyListener(new KeyListener() {
 			

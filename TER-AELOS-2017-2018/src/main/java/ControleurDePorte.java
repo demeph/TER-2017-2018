@@ -16,8 +16,8 @@ class ControleurDePorte
 	private EtatControleur _etatCourant;
 	private EtatControleur _etatPrecedant; // dans le cas d'une urgence, permet de reprendre à l'état précédant
 	private Porte _porte;
-	private capteurType _po;
-	private capteurType _pf;
+	private Capteur _po;
+	private Capteur _pf;
 	
 	
 	ControleurDePorte(Porte porte)
@@ -25,43 +25,28 @@ class ControleurDePorte
 		this._etatPrecedant = null;
 		this._etatCourant = EtatControleur.Fermee;
 		this._porte = porte;
+		
 		//initialisation des capteur
-		this._po = capteurType.capteurPourOuverture;
-		this._pf = capteurType.capteurPourFermeture;
+		this._po = new Capteur(capteurType.capteurPourOuverture);
+		this._po.set_ctrl(this);
+		this._pf = new Capteur(capteurType.capteurPourFermeture);
+		this._pf.set_ctrl(this);
 	}
-	
-	EtatControleur getEtatCourant() { return this._etatCourant; }
-
-	void setEtatCourant(EtatControleur etat) { this._etatCourant = etat; }
-	
-	EtatControleur setEtatPrecedant() { return this._etatPrecedant; }	
-
-	void setEtatPrecedant(EtatControleur etat) { this._etatPrecedant = etat; }
-
-	Porte getPorte() { return this._porte; }
-
-	void setPorte(Porte porte) { this._porte = porte; }
 	
 	/**
 	 *  
 	 */
-	void enregristreContact(capteurType cp)
+	void enregristreContact(Capteur capteur)
 	{
-		if (this._po == cp) {
-			this._etatCourant = EtatControleur.PorteOuverte;
-			this._porte.ouverte();
-		} else if (this._pf == cp) {
-			this._etatCourant = EtatControleur.Fermee;
-			this._porte.fermee();
-		}else {
-			try {
-				this.urgence();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				LCD.drawString(e.getMessage(), 0, 0);
-			}
+		// historise l'activation des capteurs. A confirmer
+		try {
+			this.contact(capteur);
+		}
+		catch (Exception e) {
+			// TODO: handle exception
 		}
 	}
+	
 	
 	/**
 	 * Demande à la porte de s'ouvrir et change l'état du controleur 
@@ -105,6 +90,7 @@ class ControleurDePorte
 		else throw new Exception("La porte est ferme");
 	}
 	
+	
 	/**
 	 *  Arrête le mouvement de la porte : eteint le moteur car c'est un cas d'urgence
 	 */
@@ -120,23 +106,40 @@ class ControleurDePorte
 		}
 		else throw new Exception("pas etat urgence");	
 	}
+	
+	
+	private void captAction(capteurType cp) {
+		if (this._po.get_typeCapteur().equals(cp)) {
+			this._etatCourant = EtatControleur.PorteOuverte;
+			this._porte.ouverte();
+		} else if (this._pf.get_typeCapteur().equals(cp)) {
+			this._etatCourant = EtatControleur.Fermee;
+			this._porte.fermee();
+		}else {
+			try {
+				this.urgence();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				LCD.drawString(e.getMessage(), 0, 0);
+			}
+		}
+	}
+	
 
 	/**
 	 *  
 	 */
-	public void contact() throws Exception
+	public void contact(Capteur capteur) throws Exception
 	{
 		if(this._etatCourant.equals(EtatControleur.EnFermeture))
 		{
 			this._etatPrecedant = this._etatCourant;
-			this._etatCourant = EtatControleur.Fermee;
-			this._porte.fermee();
+			this.captAction(capteur.get_typeCapteur());
 		}
 		else if(this._etatCourant.equals(EtatControleur.EnOuverture))
 		{
 			this._etatPrecedant = this._etatCourant;
-			this._etatCourant = EtatControleur.PorteOuverte;
-			this._porte.ouverte();
+			this.captAction(capteur.get_typeCapteur());
 		}
 		else throw new Exception("urgence echoue");		
 	}
@@ -158,4 +161,32 @@ class ControleurDePorte
 		else throw new Exception("reprise echoue");			
 	}
 	
+	
+	public Capteur get_po() {
+		return _po;
+	}
+
+	public void set_po(Capteur _po) {
+		this._po = _po;
+	}
+
+	public Capteur get_pf() {
+		return _pf;
+	}
+
+	public void set_pf(Capteur _pf) {
+		this._pf = _pf;
+	}
+
+	EtatControleur getEtatCourant() { return this._etatCourant; }
+
+	void setEtatCourant(EtatControleur etat) { this._etatCourant = etat; }
+	
+	EtatControleur setEtatPrecedant() { return this._etatPrecedant; }	
+
+	void setEtatPrecedant(EtatControleur etat) { this._etatPrecedant = etat; }
+
+	Porte getPorte() { return this._porte; }
+
+	void setPorte(Porte porte) { this._porte = porte; }
 }
