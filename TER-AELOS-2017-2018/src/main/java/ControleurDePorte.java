@@ -133,13 +133,17 @@ class ControleurDePorte
 	{
 		if(this._etatCourant.equals(EtatControleur.EnFermeture))
 		{
-			this._etatPrecedant = this._etatCourant;
-			this.captAction(capteur.get_typeCapteur());
+			if (capteur.get_typeCapteur().equals(capteurType.capteurPourFermeture)) {
+				this._etatPrecedant = this._etatCourant;
+				this.captAction(capteur.get_typeCapteur());
+			}
 		}
 		else if(this._etatCourant.equals(EtatControleur.EnOuverture))
 		{
-			this._etatPrecedant = this._etatCourant;
-			this.captAction(capteur.get_typeCapteur());
+			if (capteur.get_typeCapteur().equals(capteurType.capteurPourOuverture)) {
+				this._etatPrecedant = this._etatCourant;
+				this.captAction(capteur.get_typeCapteur());
+			}
 		}
 		else throw new Exception("urgence echoue");		
 	}

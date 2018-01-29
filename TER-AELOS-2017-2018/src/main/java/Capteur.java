@@ -1,3 +1,4 @@
+import lejos.hardware.lcd.LCD;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3TouchSensor;
 
@@ -45,6 +46,9 @@ public class Capteur extends Thread{
 			if (sample[0] == 1.0) {
 				this._ctrl.enregristreContact(this);
 			}
+			LCD.clear();
+			LCD.drawString(this._ctrl.getEtatCourant().toString(), 0, 1);
+			LCD.setAutoRefresh(false);
 		}
 	}
 	

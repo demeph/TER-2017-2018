@@ -3,6 +3,7 @@ import lejos.hardware.Button;
 import lejos.hardware.Key;
 import lejos.hardware.KeyListener;
 import lejos.hardware.ev3.EV3;
+import lejos.hardware.lcd.LCD;
 
 public class MainBeta {
 
@@ -129,7 +130,7 @@ public class MainBeta {
 		Button.LEFT.waitForPressAndRelease();
 		Button.RIGHT.waitForPressAndRelease();
 		Button.ESCAPE.waitForPressAndRelease();
-
+	
 	}
 
 }
