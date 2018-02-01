@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/demna/.android/build-cache/a4b43609c5d82c12e09c0b8631913eab49aff642/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="952944218ecedea1554a513dec0c14d570642843">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/pre-dexed/debug/classes_4b59263e08508894a73079dbb97ff816063d30a1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/demna/.android/build-cache/fb7b165489068781b1f8d360b1e18bdc257f9939/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/pre-dexed/debug/classes_e7da280fd7407c4bd3f0d60201e68da8ce41429d.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/demna/.android/build-cache/fb7b165489068781b1f8d360b1e18bdc257f9939/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e7da280fd7407c4bd3f0d60201e68da8ce41429d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="8a2be3dcabc8901f3e64bbe153a6e8f772241266">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b70a8729bcc5c4839b2a9e2b68e06a35d06bb20a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/demna/.android/build-cache/3f525bd72949b2ced0be1989c393a139c4d02797/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f10645b2a24e7c438d5d694292bf18ae5907fe3b/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/demna/.android/build-cache/3f525bd72949b2ced0be1989c393a139c4d02797/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/pre-dexed/debug/classes_f10645b2a24e7c438d5d694292bf18ae5907fe3b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/demna/.android/build-cache/a0824d10d28d29422006cc717342535e5a15342d/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="9935891f23923f39d002087085d9696568a9f657">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/pre-dexed/debug/classes_cec36db34d9112a4a58bdb5b296f1423b452be1d.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/demna/.android/build-cache/a0824d10d28d29422006cc717342535e5a15342d/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="9935891f23923f39d002087085d9696568a9f657">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_cec36db34d9112a4a58bdb5b296f1423b452be1d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/demna/.android/build-cache/281779e19b4fd1cba28a2a3dc60afcf3c8c1c43c/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_208d939cf7e362ecbcbb4f8e19d7617226ca56b1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/demna/.android/build-cache/4dd65559b5706b2a9e47566faa44c3b922cac682/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a55dcc6174f5f78e37f243d7df1597d35a3fb2f5/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/demna/.android/build-cache/d873458b3f8aae2ba025df82757ba9c3cfa8d8e5/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/pre-dexed/debug/classes_8f5d61621566959389db37e27e07de475b2c4982.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/demna/.android/build-cache/281779e19b4fd1cba28a2a3dc60afcf3c8c1c43c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/pre-dexed/debug/classes_208d939cf7e362ecbcbb4f8e19d7617226ca56b1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/demna/.android/build-cache/4dd65559b5706b2a9e47566faa44c3b922cac682/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/pre-dexed/debug/classes_a55dcc6174f5f78e37f243d7df1597d35a3fb2f5.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/demna/.android/build-cache/d873458b3f8aae2ba025df82757ba9c3cfa8d8e5/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8f5d61621566959389db37e27e07de475b2c4982/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/demna/.android/build-cache/0168a70a578c22c5108d6c36dde6aadbef6a613c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/pre-dexed/debug/classes_cfcebfe778cccbf31e1c9a21fc14c1f650cbc6ed.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/demna/.android/build-cache/0168a70a578c22c5108d6c36dde6aadbef6a613c/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_cfcebfe778cccbf31e1c9a21fc14c1f650cbc6ed/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/demna/Android/Sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_ac926b78a5d2b3611b43957d7a9e06e38e59774b.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/demna/Android/Sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.2_ac926b78a5d2b3611b43957d7a9e06e38e59774b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/demna/.android/build-cache/48287667b8998d924cf1dd1d738ecc26bb8f1200/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2571de651aef43c5dcf20383bc9c5910f4c25fec/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/demna/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/26.0.0-alpha1/support-annotations-26.0.0-alpha1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-26.0.0-alpha1_1518c772c9efa8375d67017008b0e3f80d4200c5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_c02739c1d6ab67e2190f8585d8ed6d331a2dc4a3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/demna/.android/build-cache/43d58acf3532c8775ea118da85e5dfdee7394f0f/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_451e2cc3c879a605723bf985bf0b9493cd171136/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/demna/.android/build-cache/48287667b8998d924cf1dd1d738ecc26bb8f1200/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/pre-dexed/debug/classes_2571de651aef43c5dcf20383bc9c5910f4c25fec.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/demna/.android/build-cache/a4b43609c5d82c12e09c0b8631913eab49aff642/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="952944218ecedea1554a513dec0c14d570642843">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4b59263e08508894a73079dbb97ff816063d30a1/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/demna/.android/build-cache/43d58acf3532c8775ea118da85e5dfdee7394f0f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/pre-dexed/debug/classes_451e2cc3c879a605723bf985bf0b9493cd171136.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/demna/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/26.0.0-alpha1/support-annotations-26.0.0-alpha1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="/home/demna/AndroidStudioProjects/MyApplication/app/build/intermediates/pre-dexed/debug/support-annotations-26.0.0-alpha1_1518c772c9efa8375d67017008b0e3f80d4200c5.jar" />
+    </item>
+
+</items>
