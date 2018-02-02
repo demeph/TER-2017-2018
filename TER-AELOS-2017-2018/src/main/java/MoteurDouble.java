@@ -3,7 +3,7 @@ import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 
 /**
- * 
+ * @deprecated
  * @author Deme, Loic, Clément
  *
  */
@@ -19,19 +19,19 @@ class MoteurDouble extends Moteur {
 	
 	@Override
 	void pousser() {
-		_mA.forward();
-		_mA.setSpeed(100);
-		_mB.forward();
-		_mB.setSpeed(100);
+		_mA.setSpeed(50);
+		_mA.backward();
+		_mB.setSpeed(50);
+		_mB.backward();
 		setEtat(EtatMoteur.Enpousee);
 	}
 	
 	@Override
 	void tirer() {
-		_mA.backward();
-		_mA.setSpeed(100);
-		_mB.backward();
-		_mB.setSpeed(100);
+		_mA.setSpeed(50);
+		_mA.forward();
+		_mB.setSpeed(50);
+		_mB.forward();
 		setEtat(EtatMoteur.Entiree);
 	}
 	

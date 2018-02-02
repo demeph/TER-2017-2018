@@ -1,4 +1,5 @@
 import lejos.hardware.lcd.LCD;
+import lejos.hardware.sensor.EV3TouchSensor;
 
 /**
  *  
@@ -20,16 +21,16 @@ class ControleurDePorte
 	private Capteur _pf;
 	
 	
-	ControleurDePorte(Porte porte)
+	ControleurDePorte(Porte porte,EV3TouchSensor touchOuvert,EV3TouchSensor touchFerme)
 	{
 		this._etatPrecedant = null;
 		this._etatCourant = EtatControleur.Fermee;
 		this._porte = porte;
 		
 		//initialisation des capteur
-		this._po = new Capteur(capteurType.capteurPourOuverture);
+		this._po = new Capteur(capteurType.capteurPourOuverture,touchOuvert);
 		this._po.set_ctrl(this);
-		this._pf = new Capteur(capteurType.capteurPourFermeture);
+		this._pf = new Capteur(capteurType.capteurPourFermeture,touchFerme);
 		this._pf.set_ctrl(this);
 	}
 	

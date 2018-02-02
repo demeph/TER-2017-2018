@@ -1,6 +1,4 @@
 import lejos.robotics.RegulatedMotor;
-import lejos.hardware.motor.EV3LargeRegulatedMotor;
-import lejos.hardware.port.MotorPort;
 
 /**
  * 
@@ -10,9 +8,9 @@ import lejos.hardware.port.MotorPort;
 class MoteurSimple extends Moteur {
 	private RegulatedMotor _mA;
 	
-	MoteurSimple() {
+	MoteurSimple(RegulatedMotor mA) {
 		super();
-		_mA = new EV3LargeRegulatedMotor(MotorPort.A);
+		this._mA = mA;
 	}
 	
 	@Override

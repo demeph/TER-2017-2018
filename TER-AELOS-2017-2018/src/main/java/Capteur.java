@@ -19,15 +19,9 @@ public class Capteur extends Thread{
 	private capteurType _typeCapteur;
 	private EV3TouchSensor _touchSensor;
 
-	Capteur(capteurType typeCaptTactile){
-		if (typeCaptTactile.equals(capteurType.capteurPourFermeture)) {
-			this._touchSensor = new EV3TouchSensor(SensorPort.S1);
+	Capteur(capteurType typeCaptTactile,EV3TouchSensor touchSensor){
+			this._touchSensor = touchSensor;
 			this._typeCapteur = typeCaptTactile;
-		}
-		else if (typeCaptTactile.equals(capteurType.capteurPourOuverture)) {
-			this._touchSensor = new EV3TouchSensor(SensorPort.S2);
-			this._typeCapteur = typeCaptTactile;
-		}
 	}
 	
 	@Override

@@ -4,6 +4,10 @@ import lejos.hardware.Key;
 import lejos.hardware.KeyListener;
 import lejos.hardware.ev3.EV3;
 import lejos.hardware.lcd.LCD;
+import lejos.hardware.motor.EV3LargeRegulatedMotor;
+import lejos.hardware.port.MotorPort;
+import lejos.hardware.port.SensorPort;
+import lejos.hardware.sensor.EV3TouchSensor;
 
 public class MainBeta {
 
@@ -11,9 +15,14 @@ public class MainBeta {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		EV3 ev3 = (EV3) BrickFinder.getDefault();
-		Moteur mt = new MoteurSimple();
+		
+		EV3TouchSensor portOuverte1 =  new EV3TouchSensor(SensorPort.S2);
+		EV3TouchSensor portFermet1 =  new EV3TouchSensor(SensorPort.S1);
+		
+		
+		Moteur mt = new MoteurSimple(new EV3LargeRegulatedMotor(MotorPort.A));
 		Porte pt = new Porte(mt);
-		final ControleurDePorte cp = new ControleurDePorte(pt);
+		final ControleurDePorte cp = new ControleurDePorte(pt,portOuverte1,portFermet1);
 		
 		cp.get_pf().start();
 		cp.get_po().start();
