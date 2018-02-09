@@ -6,15 +6,20 @@ class TestControleurDePorte
 {
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() throws Exception 
+	{
+	
 	}
 
 	@After
-	public void tearDown() throws Exception {
+	public void tearDown() throws Exception 
+	{
+	
 	}
 
 	@Test
-	public void () {
+	public void () 
+	{
 
 	}
 
