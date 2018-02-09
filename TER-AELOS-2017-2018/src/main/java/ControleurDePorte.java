@@ -6,7 +6,6 @@ import lejos.hardware.sensor.EV3TouchSensor;
  */
 enum EtatControleur {Fermee, EnOuverture, PorteOuverte, EnFermeture, EnAttente, Urgence};
 
-
 /**
  * Classe qui contrôle une porte
  * @author Deme, Loic, Clément
@@ -73,7 +72,7 @@ class ControleurDePorte
 	/**
 	 *  Demande à la porte de se fermer et change l'état du controleur
 	 */
-	public void ferme() throws Exception
+	void ferme() throws Exception
 	{
 		if(this._etatCourant.equals(EtatControleur.EnFermeture))
 		{
@@ -95,7 +94,7 @@ class ControleurDePorte
 	/**
 	 *  Arrête le mouvement de la porte : eteint le moteur car c'est un cas d'urgence
 	 */
-	public void urgence() throws Exception
+	void urgence() throws Exception
 	{
 		if(this._etatCourant.equals(EtatControleur.EnOuverture) || 
 				this._etatCourant.equals(EtatControleur.EnAttente) || 
@@ -130,7 +129,7 @@ class ControleurDePorte
 	/**
 	 *  
 	 */
-	public void contact(Capteur capteur) throws Exception
+	void contact(Capteur capteur) throws Exception
 	{
 		if(this._etatCourant.equals(EtatControleur.EnFermeture))
 		{
@@ -167,19 +166,19 @@ class ControleurDePorte
 	}
 	
 	
-	public Capteur get_po() {
+	Capteur get_po() {
 		return _po;
 	}
 
-	public void set_po(Capteur _po) {
+	void set_po(Capteur _po) {
 		this._po = _po;
 	}
 
-	public Capteur get_pf() {
+	Capteur get_pf() {
 		return _pf;
 	}
 
-	public void set_pf(Capteur _pf) {
+	void set_pf(Capteur _pf) {
 		this._pf = _pf;
 	}
 
@@ -187,7 +186,7 @@ class ControleurDePorte
 
 	void setEtatCourant(EtatControleur etat) { this._etatCourant = etat; }
 	
-	EtatControleur setEtatPrecedant() { return this._etatPrecedant; }	
+	EtatControleur getEtatPrecedant() { return this._etatPrecedant; }	
 
 	void setEtatPrecedant(EtatControleur etat) { this._etatPrecedant = etat; }
 
