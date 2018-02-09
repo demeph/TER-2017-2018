@@ -1,8 +1,10 @@
+
+import static org.junit.Assert.assertThat;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.assertj.core.api.Assertions.*;
 
 /**
  *  
@@ -21,10 +23,10 @@ enum capteurType {capteurPourOuverture, capteurPourFermeture};
  */
 class TestControleurDePorte
 {
-	ControleurDePorte cp = new ControleurDePorte(pt); // pas nécéssaire de le mettre dans chaque méthode, on en a tjrs besoin
 	Moteur mt = new MoteurSimple();
 	Porte pt = new Porte(mt);
-
+	ControleurDePorte cp = new ControleurDePorte(pt); // pas nécéssaire de le mettre dans chaque méthode, on en a tjrs besoin
+	
 	/**
  	*  
  	*/
