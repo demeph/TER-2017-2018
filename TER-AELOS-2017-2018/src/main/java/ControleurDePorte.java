@@ -47,8 +47,7 @@ class ControleurDePorte
 			// TODO: handle exception
 		}
 	}
-	
-	
+
 	/**
 	 * Demande à la porte de s'ouvrir et change l'état du controleur 
 	 */
