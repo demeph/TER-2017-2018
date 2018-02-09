@@ -35,46 +35,18 @@ public class CommunicationWithPC {
 			final ControleurDePorte cp1 = new ControleurDePorte(pt1,portOuverte1,portFermet1);
 			final ControleurDePorte cp2 = new ControleurDePorte(pt2,portOuverte2,portFermet2);
 			
+			
+//			cp1.get_pf().start();
+//			cp1.get_po().start();
+//			
+//			cp2.get_po().start();
+//			cp2.get_pf().start();
+			
 			Telecommande2ctrl teleCommande = new Telecommande2ctrl(cp1,cp2);
 			
-			cp1.get_pf().start();
-			cp1.get_po().start();
-			cp2.get_po().start();
-			cp2.get_pf().start();
-			
-			
-		  	String clientSentence,capitalizedSentence;
-		  
-	      
-			ServerSocket welcomeSocket = null;
-			try {
-				welcomeSocket = new ServerSocket(5555);
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-
-		      while(true) {
-		    	  try {
-		    		Socket connectionSocket = welcomeSocket.accept();
-		            BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
-		            DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
-		            clientSentence = inFromClient.readLine();
-		            System.out.println("Received: " + clientSentence);
-		            if (clientSentence.equals(lesCommandes.ouvrirLaPorte.toString())) {
-		            	teleCommande.demandeOuverture();		            	 
-		            } else if (clientSentence.equals(lesCommandes.fermerLaPorte.toString())) {
-		            	teleCommande.demandeFermeture();
-		            }            
-		            capitalizedSentence = teleCommande.get_msgATransporte() + '\n';
-		            outToClient.writeBytes(capitalizedSentence);
-			      }catch (Exception e) {
-						System.out.println(e.getMessage()+":ev3");
-					}
-
-		          
-		      }
+			SocketThread st = new SocketThread();
+			st.set_teleCommande(teleCommande);
+			st.start();
 
 	}
-
 }

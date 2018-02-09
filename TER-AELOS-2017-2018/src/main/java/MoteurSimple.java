@@ -36,5 +36,7 @@ class MoteurSimple extends Moteur {
 	@Override
 	void stop() {
 		_mA.setSpeed(0);
+		_mA.stop();
+		setEtat(EtatMoteur.Arret);
 	}
 }

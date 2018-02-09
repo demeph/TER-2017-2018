@@ -34,9 +34,8 @@ public class TelecommandeUI {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		JFrame fenetre = new JFrame();
-      
+	      
 		fenetre.setTitle("Controleur Porte");
 		fenetre.setSize(250, 150);
 		fenetre.setLocationRelativeTo(null);
@@ -54,13 +53,20 @@ public class TelecommandeUI {
 		fenetre.getContentPane().add(butOuverture);
 		fenetre.getContentPane().add(butFermeture);
 		
-		
 		butOuverture.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				label.setText("Ouverture");
+				try {
+					socketConnection(lesCommandes.ouvrirLaPorte);
+				} catch (UnknownHostException e1) {
+					// TODO Auto-generated catch block
+					label.setText(e1.getMessage());
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					label.setText(e1.getMessage());
+				}
 			}
 		});
 		
@@ -69,12 +75,19 @@ public class TelecommandeUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				label.setText("Fermeture");
+				try {
+					socketConnection(lesCommandes.fermerLaPorte);
+				} catch (UnknownHostException e1) {
+					// TODO Auto-generated catch block
+					label.setText(e1.getMessage());
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					label.setText(e1.getMessage()); 
+				}
 			}
 		});
 		
 		
-
+		
 	}
-
 }

@@ -41,7 +41,7 @@ public class Capteur extends Thread{
 				this._ctrl.enregristreContact(this);
 			}
 			LCD.clear();
-			LCD.drawString(this._ctrl.getEtatCourant().toString(), 0, 1);
+			LCD.drawString(this._ctrl.getPorte().getMt().getEtatMoteur().toString(), 1, 4);
 			LCD.setAutoRefresh(false);
 		}
 	}

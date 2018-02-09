@@ -173,34 +173,45 @@ class ControleurDePorte
 	
 	String traiterDemandeFermeture() {
 		String msg ="Rien a Faire";
-		if (this._etatCourant.equals(EtatControleur.EnFermeture)) {
-			this._porte.pause();
-			msg = "La fermeture de la porte est en attente";
-		} else if (this._etatCourant.equals(EtatControleur.Urgence)){
-			msg = "Action non autorise, la porte est bloque";
-		} else if (this._etatCourant.equals(EtatControleur.PorteOuverte)) {
-			this._porte.ferme();
-			msg = "La porte est en fermeture";
-		} else if (this._etatCourant.equals(EtatControleur.EnAttente)) {
-			this._porte.ferme();
-			msg = "La porte reprend la fermeture";
+		try {
+			if (this._etatCourant.equals(EtatControleur.EnFermeture)) {
+				this._etatCourant = EtatControleur.EnAttente;
+				this._porte.pause();
+				msg = "La fermeture de la porte est en attente";
+			} else if (this._etatCourant.equals(EtatControleur.Urgence)){
+				msg = "Action non autorise, la porte est bloque";
+			} else if (this._etatCourant.equals(EtatControleur.PorteOuverte)) {
+				ferme();
+				msg = "La porte est en fermeture";
+			} else if (this._etatCourant.equals(EtatControleur.EnAttente)) {
+				ferme();
+				msg = "La porte reprend la fermeture";
+			}
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 		return msg;
 	}
 
 	String traiterDemandeOuverture() {
 		String msg ="Rien a Faire";
-		if (this._etatCourant.equals(EtatControleur.EnOuverture)) {
-			this._porte.pause();
-			msg = "L'ouverture de la porte est en attente";
-		} else if (this._etatCourant.equals(EtatControleur.Urgence)){
-			msg = "Action non autorise, la porte est bloque";
-		} else if (this._etatCourant.equals(EtatControleur.Fermee)) {
-			this._porte.ouvre();
-			msg = "La porte est en ouverture";
-		} else if (this._etatCourant.equals(EtatControleur.EnAttente)) {
-			this._porte.ouvre();
-			msg = "La porte reprend l'ouverture";
+		try {			
+			if (this._etatCourant.equals(EtatControleur.EnOuverture)) {
+				_etatCourant = EtatControleur.EnAttente;
+				this._porte.pause();
+				msg = "L'ouverture de la porte est en attente";
+			} else if (this._etatCourant.equals(EtatControleur.Urgence)){
+				msg = "Action non autorise, la porte est bloque";
+			} else if (this._etatCourant.equals(EtatControleur.Fermee)) {
+				msg = "La porte est en ouverture";
+				ouvre();			
+			} else if (this._etatCourant.equals(EtatControleur.EnAttente)) {
+				msg = "La porte reprend l'ouverture";
+				ouvre();
+			}
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
 		}
 		return msg;
 	}
