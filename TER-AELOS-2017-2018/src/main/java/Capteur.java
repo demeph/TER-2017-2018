@@ -40,9 +40,9 @@ public class Capteur extends Thread{
 			if (sample[0] == 1.0) {
 				this._ctrl.enregristreContact(this);
 			}
-			LCD.clear();
-			LCD.drawString(this._ctrl.getPorte().getMt().getEtatMoteur().toString(), 1, 4);
-			LCD.setAutoRefresh(false);
+			//LCD.clear();7
+			System.out.println(this._ctrl.getPorte().getMt().getEtatMoteur().toString());
+			//LCD.setAutoRefresh(false);
 		}
 	}
 	
