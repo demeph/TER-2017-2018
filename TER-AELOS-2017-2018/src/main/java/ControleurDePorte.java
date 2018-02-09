@@ -6,6 +6,10 @@ import lejos.hardware.sensor.EV3TouchSensor;
  */
 enum EtatControleur {Fermee, EnOuverture, PorteOuverte, EnFermeture, EnAttente, Urgence};
 
+enum lesCommandes {
+	ouvrirLaPorte,
+	fermerLaPorte
+}
 
 /**
  * Classe qui contrôle une porte
@@ -27,7 +31,7 @@ class ControleurDePorte
 		this._etatCourant = EtatControleur.Fermee;
 		this._porte = porte;
 		
-		//initialisation des capteur
+		//initialisation des capteurs 
 		this._po = new Capteur(capteurType.capteurPourOuverture,touchOuvert);
 		this._po.set_ctrl(this);
 		this._pf = new Capteur(capteurType.capteurPourFermeture,touchFerme);
@@ -167,6 +171,40 @@ class ControleurDePorte
 	}
 	
 	
+	String traiterDemandeFermeture() {
+		String msg ="Rien a Faire";
+		if (this._etatCourant.equals(EtatControleur.EnFermeture)) {
+			this._porte.pause();
+			msg = "La fermeture de la porte est en attente";
+		} else if (this._etatCourant.equals(EtatControleur.Urgence)){
+			msg = "Action non autorise, la porte est bloque";
+		} else if (this._etatCourant.equals(EtatControleur.PorteOuverte)) {
+			this._porte.ferme();
+			msg = "La porte est en fermeture";
+		} else if (this._etatCourant.equals(EtatControleur.EnAttente)) {
+			this._porte.ferme();
+			msg = "La porte reprend la fermeture";
+		}
+		return msg;
+	}
+
+	String traiterDemandeOuverture() {
+		String msg ="Rien a Faire";
+		if (this._etatCourant.equals(EtatControleur.EnOuverture)) {
+			this._porte.pause();
+			msg = "L'ouverture de la porte est en attente";
+		} else if (this._etatCourant.equals(EtatControleur.Urgence)){
+			msg = "Action non autorise, la porte est bloque";
+		} else if (this._etatCourant.equals(EtatControleur.Fermee)) {
+			this._porte.ouvre();
+			msg = "La porte est en ouverture";
+		} else if (this._etatCourant.equals(EtatControleur.EnAttente)) {
+			this._porte.ouvre();
+			msg = "La porte reprend l'ouverture";
+		}
+		return msg;
+	}
+
 	public Capteur get_po() {
 		return _po;
 	}

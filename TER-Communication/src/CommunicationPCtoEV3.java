@@ -23,6 +23,7 @@ public class CommunicationPCtoEV3 {
 		clientSocket.close();
 	}
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		try {
 			  int choix = 0;
@@ -40,9 +41,9 @@ public class CommunicationPCtoEV3 {
 		    	  if (choix == 1) {
 						System.out.println("cas 1");
 						socketConnection(lesCommandes.versAvant);
-		    	  }else  if (choix == 2 ){
+		    	  } else  if (choix == 2 ){
 		    		  socketConnection(lesCommandes.versArriere);					
-		    	  }else  if (choix == 3) {
+		    	  } else  if (choix == 3) {
 		    		  	socketConnection(lesCommandes.arreterMoteur);
 		    	  } else if (choix == 4){
 		    		  socketConnection(lesCommandes.fin);
