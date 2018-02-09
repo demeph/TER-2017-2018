@@ -27,13 +27,13 @@ public class TestPorte{
 
 	@Test
 	public void testSetEtatCourant(){
-		p.testSetEtatCourant(etatPorte.PorteOuverte);
+		p.setEtatCourant(etatPorte.PorteOuverte);
 		assertEquals(p.getEtatCourant, etatPorte.PorteOuverte);
 	}
 
 	@Test
 	public void testSetEtatPrecendent(){
-		p.testSetEtatCourant(etatPorte.PorteOuverte);
+		p.setEtatCourant(etatPorte.PorteOuverte);
 		assertEquals(p.getEtatPrecendent(), etatPorte.PorteFermee);
 	}
 
@@ -47,7 +47,7 @@ public class TestPorte{
 	@Test
 	public void testFerme(){
 		// besoin de changer l'état car la porte est fermée 
-		p.testSetEtatCourant(etatPorte.PorteOuverte); //met en ouverture
+		p.setEtatCourant(etatPorte.PorteOuverte); //met en ouverture
 		p.ferme();
 		assertEquals(p.getEtatCourant(), etatPorte.enFermeture);
 	}
@@ -85,7 +85,7 @@ public class TestPorte{
 
 	@Test
 	public void testReprend(){
-		p.testSetEtatCourant(etatPorte.PorteOuverte); // je le passe en ouvert
+		p.setEtatCourant(etatPorte.PorteOuverte); // je le passe en ouvert
 		// ensuite je test le reprend qui est censé reprendre en ouverte normalement
 		p.reprend();
 		assertEquals(p.getEtatCourant(), etatPorte.PorteOuverte);
