@@ -1,13 +1,13 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
+import static org.junit.Assert.*;
 import org.junit.Test;
 
+import fr.Domodoor.*;
+import lejos.hardware.motor.EV3LargeRegulatedMotor;
+import lejos.hardware.port.MotorPort;
 
-enum EtatMoteur {
-	Enpousee,
-	Entiree,
-	Arret,
-};
 
 
 public class TestMoteurSimpleTest {
@@ -15,7 +15,7 @@ public class TestMoteurSimpleTest {
 	
 	@Test 	
 	public void testConstructeurMoteur(){
-		AssertEquals(mt.getEtatMoteur(),EtatMoteur.Arret);
+		assertEquals(mt.getEtatMoteur(),EnumEtatMoteur.Arret);
 	}
 
 	

@@ -2,11 +2,6 @@ package fr.Domodoor;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.sensor.EV3TouchSensor;
 
-/**
- *  
- */
-enum EtatControleur {Fermee, EnOuverture, PorteOuverte, EnFermeture, EnAttente, Urgence};
-
 enum lesCommandes {
 	ouvrirLaPorte,
 	fermerLaPorte
@@ -17,25 +12,25 @@ enum lesCommandes {
  * @author Deme, Loic, Clément
  * @version 1.0
  */
-class ControleurDePorte
+public class ControleurDePorte
 {
-	private EtatControleur _etatCourant;
-	private EtatControleur _etatPrecedant; // dans le cas d'une urgence, permet de reprendre à l'état précédant
+	private EnumEtatControleur _etatCourant;
+	private EnumEtatControleur _etatPrecedant; // dans le cas d'une urgence, permet de reprendre à l'état précédant
 	private Porte _porte;
 	private Capteur _po;
 	private Capteur _pf;
 	
 	
-	ControleurDePorte(Porte porte,EV3TouchSensor touchOuvert,EV3TouchSensor touchFerme)
+	public ControleurDePorte(Porte porte,EV3TouchSensor touchOuvert,EV3TouchSensor touchFerme)
 	{
 		this._etatPrecedant = null;
-		this._etatCourant = EtatControleur.Fermee;
+		this._etatCourant = EnumEtatControleur.Fermee;
 		this._porte = porte;
 		
 		//initialisation des capteurs 
-		this._po = new Capteur(capteurType.capteurPourOuverture,touchOuvert);
+		this._po = new Capteur(EnumCapteurType.capteurPourOuverture,touchOuvert);
 		this._po.set_ctrl(this);
-		this._pf = new Capteur(capteurType.capteurPourFermeture,touchFerme);
+		this._pf = new Capteur(EnumCapteurType.capteurPourFermeture,touchFerme);
 		this._pf.set_ctrl(this);
 	}
 	
@@ -57,19 +52,19 @@ class ControleurDePorte
 	/**
 	 * Demande à la porte de s'ouvrir et change l'état du controleur 
 	 */
-	void ouvre() throws Exception
+	public void ouvre() throws Exception
 	{
-		if(this._etatCourant.equals(EtatControleur.Fermee) ||
-				this._etatCourant.equals(EtatControleur.EnAttente))
+		if(this._etatCourant.equals(EnumEtatControleur.Fermee) ||
+				this._etatCourant.equals(EnumEtatControleur.EnAttente))
 		{
 			this._etatPrecedant = this._etatCourant;
-			this._etatCourant = EtatControleur.EnOuverture;
+			this._etatCourant = EnumEtatControleur.EnOuverture;
 			this._porte.ouvre();
 		}
-		else if(this._etatCourant.equals(EtatControleur.EnOuverture))
+		else if(this._etatCourant.equals(EnumEtatControleur.EnOuverture))
 		{
 			this._etatPrecedant = this._etatCourant;
-			this._etatCourant = EtatControleur.EnAttente;
+			this._etatCourant = EnumEtatControleur.EnAttente;
 			this._porte.pause();
 		}
 		else throw new Exception("Pas dans etat ferme ou en ouverture");
@@ -80,17 +75,17 @@ class ControleurDePorte
 	 */
 	public void ferme() throws Exception
 	{
-		if(this._etatCourant.equals(EtatControleur.EnFermeture))
+		if(this._etatCourant.equals(EnumEtatControleur.EnFermeture))
 		{
 			this._etatPrecedant = this._etatCourant;
-			this._etatCourant = EtatControleur.EnAttente;
+			this._etatCourant = EnumEtatControleur.EnAttente;
 			this._porte.pause();
 		}
-		else if(this._etatCourant.equals(EtatControleur.EnAttente) || 
-				this._etatCourant.equals(EtatControleur.PorteOuverte))
+		else if(this._etatCourant.equals(EnumEtatControleur.EnAttente) || 
+				this._etatCourant.equals(EnumEtatControleur.PorteOuverte))
 		{
 			this._etatPrecedant = this._etatCourant;
-			this._etatCourant = EtatControleur.EnFermeture;
+			this._etatCourant = EnumEtatControleur.EnFermeture;
 			this._porte.ferme();
 		}
 		else throw new Exception("La porte est ferme");
@@ -102,24 +97,24 @@ class ControleurDePorte
 	 */
 	public void urgence() throws Exception
 	{
-		if(this._etatCourant.equals(EtatControleur.EnOuverture) || 
-				this._etatCourant.equals(EtatControleur.EnAttente) || 
-				this._etatCourant.equals(EtatControleur.EnFermeture))
+		if(this._etatCourant.equals(EnumEtatControleur.EnOuverture) || 
+				this._etatCourant.equals(EnumEtatControleur.EnAttente) || 
+				this._etatCourant.equals(EnumEtatControleur.EnFermeture))
 		{
 			this._etatPrecedant = this._etatCourant;
-			this._etatCourant = EtatControleur.Urgence;
+			this._etatCourant = EnumEtatControleur.Urgence;
 			this._porte.bloque();
 		}
 		else throw new Exception("pas etat urgence");	
 	}
 	
 	
-	private void captAction(capteurType cp) {
+	private void captAction(EnumCapteurType cp) {
 		if (this._po.get_typeCapteur().equals(cp)) {
-			this._etatCourant = EtatControleur.PorteOuverte;
+			this._etatCourant = EnumEtatControleur.PorteOuverte;
 			this._porte.ouverte();
 		} else if (this._pf.get_typeCapteur().equals(cp)) {
-			this._etatCourant = EtatControleur.Fermee;
+			this._etatCourant = EnumEtatControleur.Fermee;
 			this._porte.fermee();
 		}else {
 			try {
@@ -137,16 +132,16 @@ class ControleurDePorte
 	 */
 	public void contact(Capteur capteur) throws Exception
 	{
-		if(this._etatCourant.equals(EtatControleur.EnFermeture))
+		if(this._etatCourant.equals(EnumEtatControleur.EnFermeture))
 		{
-			if (capteur.get_typeCapteur().equals(capteurType.capteurPourFermeture)) {
+			if (capteur.get_typeCapteur().equals(EnumCapteurType.capteurPourFermeture)) {
 				this._etatPrecedant = this._etatCourant;
 				this.captAction(capteur.get_typeCapteur());
 			}
 		}
-		else if(this._etatCourant.equals(EtatControleur.EnOuverture))
+		else if(this._etatCourant.equals(EnumEtatControleur.EnOuverture))
 		{
-			if (capteur.get_typeCapteur().equals(capteurType.capteurPourOuverture)) {
+			if (capteur.get_typeCapteur().equals(EnumCapteurType.capteurPourOuverture)) {
 				this._etatPrecedant = this._etatCourant;
 				this.captAction(capteur.get_typeCapteur());
 			}
@@ -159,9 +154,9 @@ class ControleurDePorte
 	 */
 	void repriseCle() throws Exception
 	{
-		EtatControleur temp;
+		EnumEtatControleur temp;
 		
-		if(this._etatCourant.equals(EtatControleur.Urgence))
+		if(this._etatCourant.equals(EnumEtatControleur.Urgence))
 		{
 			temp = _etatPrecedant;
 			this._etatPrecedant = this._etatCourant;
@@ -175,16 +170,16 @@ class ControleurDePorte
 	String traiterDemandeFermeture() {
 		String msg ="Rien a Faire";
 		try {
-			if (this._etatCourant.equals(EtatControleur.EnFermeture)) {
-				this._etatCourant = EtatControleur.EnAttente;
+			if (this._etatCourant.equals(EnumEtatControleur.EnFermeture)) {
+				this._etatCourant = EnumEtatControleur.EnAttente;
 				this._porte.pause();
 				msg = "La fermeture de la porte est en attente";
-			} else if (this._etatCourant.equals(EtatControleur.Urgence)){
+			} else if (this._etatCourant.equals(EnumEtatControleur.Urgence)){
 				msg = "Action non autorise, la porte est bloque";
-			} else if (this._etatCourant.equals(EtatControleur.PorteOuverte)) {
+			} else if (this._etatCourant.equals(EnumEtatControleur.PorteOuverte)) {
 				ferme();
 				msg = "La porte est en fermeture";
-			} else if (this._etatCourant.equals(EtatControleur.EnAttente)) {
+			} else if (this._etatCourant.equals(EnumEtatControleur.EnAttente)) {
 				ferme();
 				msg = "La porte reprend la fermeture";
 			}
@@ -197,16 +192,16 @@ class ControleurDePorte
 	String traiterDemandeOuverture() {
 		String msg ="Rien a Faire";
 		try {			
-			if (this._etatCourant.equals(EtatControleur.EnOuverture)) {
-				_etatCourant = EtatControleur.EnAttente;
+			if (this._etatCourant.equals(EnumEtatControleur.EnOuverture)) {
+				_etatCourant = EnumEtatControleur.EnAttente;
 				this._porte.pause();
 				msg = "L'ouverture de la porte est en attente";
-			} else if (this._etatCourant.equals(EtatControleur.Urgence)){
+			} else if (this._etatCourant.equals(EnumEtatControleur.Urgence)){
 				msg = "Action non autorise, la porte est bloque";
-			} else if (this._etatCourant.equals(EtatControleur.Fermee)) {
+			} else if (this._etatCourant.equals(EnumEtatControleur.Fermee)) {
 				msg = "La porte est en ouverture";
 				ouvre();			
-			} else if (this._etatCourant.equals(EtatControleur.EnAttente)) {
+			} else if (this._etatCourant.equals(EnumEtatControleur.EnAttente)) {
 				msg = "La porte reprend l'ouverture";
 				ouvre();
 			}
@@ -233,15 +228,19 @@ class ControleurDePorte
 		this._pf = _pf;
 	}
 
-	EtatControleur getEtatCourant() { return this._etatCourant; }
+	public EnumEtatControleur get_etatCourant() { return this._etatCourant; }
 
-	void setEtatCourant(EtatControleur etat) { this._etatCourant = etat; }
+	public EnumEtatControleur get_etatPrecedant() {
+		return _etatPrecedant;
+	}
 	
-	EtatControleur setEtatPrecedant() { return this._etatPrecedant; }	
+	void set_etatCourant(EnumEtatControleur etat) { this._etatCourant = etat; }
+	
+	public EnumEtatControleur set_etatPrecedant() { return this._etatPrecedant; }	
 
-	void setEtatPrecedant(EtatControleur etat) { this._etatPrecedant = etat; }
+	void set_etatPrecedant(EnumEtatControleur etat) { this._etatPrecedant = etat; }
 
-	Porte getPorte() { return this._porte; }
+	public Porte getPorte() { return this._porte; }
 
 	void setPorte(Porte porte) { this._porte = porte; }
 }

@@ -9,35 +9,35 @@ import lejos.robotics.RegulatedMotor;
 public class MoteurSimple extends Moteur {
 	private RegulatedMotor _mA;
 	
-	MoteurSimple(RegulatedMotor mA) {
+	public MoteurSimple(RegulatedMotor mA) {
 		super();
 		this._mA = mA;
 	}
 	
 	@Override
-	void pousser() {
+	public	void pousser() {
 		_mA.setSpeed(50);
 		_mA.backward();
-		setEtat(EtatMoteur.Enpousee);
+		setEtat(EnumEtatMoteur.Enpousee);
 	}
 	
 	@Override
-	void tirer() {
+	public void tirer() {
 		_mA.setSpeed(50);
 		_mA.forward();
-		setEtat(EtatMoteur.Entiree);
+		setEtat(EnumEtatMoteur.Entiree);
 	}
 	
 	@Override
-	void arreter() {
+	public void arreter() {
 		_mA.close();
-		setEtat(EtatMoteur.Arret);
+		setEtat(EnumEtatMoteur.Arret);
 	}
 	
 	@Override
-	void stop() {
+	public void stop() {
 		_mA.setSpeed(0);
 		_mA.stop();
-		setEtat(EtatMoteur.Arret);
+		setEtat(EnumEtatMoteur.Arret);
 	}
 }

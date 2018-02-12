@@ -1,10 +1,4 @@
 package fr.Domodoor;
-enum EtatMoteur {
-	Enpousee,
-	Entiree,
-	Arret,
-};
-
 
 /**
  * 
@@ -13,34 +7,34 @@ enum EtatMoteur {
  */
 public abstract class Moteur {
 	@SuppressWarnings("unused")
-	private EtatMoteur _etat;
+	private EnumEtatMoteur _etat;
 	
-	void setEtat(EtatMoteur a) {
+	public void setEtat(EnumEtatMoteur a) {
 		this._etat = a;
 	}
 	
 	Moteur() {
-		this._etat = EtatMoteur.Arret;
+		this._etat = EnumEtatMoteur.Arret;
 	}
 
-	EtatMoteur getEtatMoteur(){
+	public EnumEtatMoteur getEtatMoteur(){
 		return this._etat;
 	}
 	
 	/**
 	 * Modélise un mouvement de poussée du moteur qui va se traduire par un .forward()
 	 */
-	abstract void pousser();
+	public abstract void pousser();
 	
 	/**
 	 * Modélise un mouvement de poussée du moteur qui va se traduire par un .backward()
 	 */
-	abstract void tirer();
+	public abstract void tirer();
 	
 	/**
 	 * Coupe le moteur .close()
 	 */
-	abstract void arreter();
+	public abstract void arreter();
 	
 	/**
 	 * Met la vitesse du moteur à 0

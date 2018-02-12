@@ -24,7 +24,7 @@ class MoteurDouble extends Moteur {
 		_mA.backward();
 		_mB.setSpeed(50);
 		_mB.backward();
-		setEtat(EtatMoteur.Enpousee);
+		setEtat(EnumEtatMoteur.Enpousee);
 	}
 	
 	@Override
@@ -33,14 +33,14 @@ class MoteurDouble extends Moteur {
 		_mA.forward();
 		_mB.setSpeed(50);
 		_mB.forward();
-		setEtat(EtatMoteur.Entiree);
+		setEtat(EnumEtatMoteur.Entiree);
 	}
 	
 	@Override
 	void arreter() {
 		_mA.close();
 		_mB.close();
-		setEtat(EtatMoteur.Arret);
+		setEtat(EnumEtatMoteur.Arret);
 	}
 	
 	@Override

@@ -7,38 +7,34 @@ import org.junit.Before;
 import org.junit.Test;
 
 import fr.Domodoor.*;
-
-enum EtatMoteur {
-	Enpousee,
-	Entiree,
-	Arret,
-};
+import lejos.hardware.motor.EV3LargeRegulatedMotor;
+import lejos.hardware.port.MotorPort;
 
 public class TestMoteurSimple {
 	Moteur mt = new MoteurSimple(new EV3LargeRegulatedMotor(MotorPort.A));
 
 	@Test 	
 	public void testConstructeurMoteur(){
-		AssertEquals(mt.getEtatMoteur(),EtatMoteur.Arret);
+		assertEquals(mt.getEtatMoteur(),EnumEtatMoteur.Arret);
 	}
 
 	@Test
 	public void testPousser(){
 		mt.pousser();
-		AssertEquals(mt.getEtatMoteur(),EtatMoteur.Enpousee);
+		assertEquals(mt.getEtatMoteur(),EnumEtatMoteur.Enpousee);
 	}
 
 	@Test
 	public void testTirer(){
 		mt.tirer();
-		AssertEquals(mt.getEtatMoteur(),EtatMoteur.Entiree);
+		assertEquals(mt.getEtatMoteur(),EnumEtatMoteur.Entiree);
 	}
 
 	@Test
 	public void testArreter(){
 		//déjà l'arrêt par défaut donc je vais changer son état quand même
-		mt.setEtat(EtatMoteur.Entiree);
+		mt.setEtat(EnumEtatMoteur.Entiree);
 		mt.arreter();
-		AssertEquals(mt.getEtatMoteur(),EtatMoteur.Arret);
+		assertEquals(mt.getEtatMoteur(),EnumEtatMoteur.Arret);
 	}
 }

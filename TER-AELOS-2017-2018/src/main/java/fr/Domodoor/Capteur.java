@@ -3,12 +3,6 @@ import lejos.hardware.lcd.LCD;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3TouchSensor;
 
-
-enum capteurType {
-	capteurPourOuverture,
-	capteurPourFermeture,
-};
-
 /**
  *
  * @author Deme, Loic, Clément
@@ -17,10 +11,10 @@ enum capteurType {
 public class Capteur extends Thread{
 	
 	private ControleurDePorte _ctrl;
-	private capteurType _typeCapteur;
+	private EnumCapteurType _typeCapteur;
 	private EV3TouchSensor _touchSensor;
 
-	Capteur(capteurType typeCaptTactile,EV3TouchSensor touchSensor){
+	Capteur(EnumCapteurType typeCaptTactile,EV3TouchSensor touchSensor){
 			this._touchSensor = touchSensor;
 			this._typeCapteur = typeCaptTactile;
 	}
@@ -63,11 +57,11 @@ public class Capteur extends Thread{
 		this._ctrl = _ctrl;
 	}
 
-	public capteurType get_typeCapteur() {
+	public EnumCapteurType get_typeCapteur() {
 		return _typeCapteur;
 	}
 
-	public void set_typeCapteur(capteurType _typeCapteur) {
+	public void set_typeCapteur(EnumCapteurType _typeCapteur) {
 		this._typeCapteur = _typeCapteur;
 	}
 
