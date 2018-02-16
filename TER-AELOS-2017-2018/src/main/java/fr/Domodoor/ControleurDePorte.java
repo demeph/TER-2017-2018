@@ -109,7 +109,7 @@ public class ControleurDePorte
 	}
 	
 	
-	private void captAction(EnumCapteurType cp) {
+	public void captAction(EnumCapteurType cp) {
 		if (this._po.get_typeCapteur().equals(cp)) {
 			this._etatCourant = EnumEtatControleur.PorteOuverte;
 			this._porte.ouverte();
@@ -152,7 +152,7 @@ public class ControleurDePorte
 	/**
 	 *  Reprend l'action qui a été stoppée 
 	 */
-	void repriseCle() throws Exception
+	public void repriseCle() throws Exception
 	{
 		EnumEtatControleur temp;
 		
