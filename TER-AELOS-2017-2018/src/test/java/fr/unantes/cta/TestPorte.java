@@ -1,3 +1,5 @@
+package java.fr.unantes.cta;
+
 //package TER-AELOS-2017-2018;
 
 import static org.junit.Assert.*;

@@ -1,3 +1,5 @@
+package java.fr.unantes.cta;
+
 
 import static org.junit.Assert.*;
 
@@ -73,7 +75,12 @@ class TestControleurDePorte
 	public void testOuvre_Fermee()
 	{
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.Fermee);	
-		cp.ouvre();
+		try {
+			cp.ouvre();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals(cp.set_etatPrecedant(),EnumEtatControleur.Fermee);
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.EnOuverture);
 
@@ -86,7 +93,12 @@ class TestControleurDePorte
 	public void testOuvre_EnAttente()
 	{
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.EnAttente);	
-		cp.ouvre();
+		try {
+			cp.ouvre();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals(cp.set_etatPrecedant(),EnumEtatControleur.EnAttente);
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.EnOuverture);
 
@@ -99,7 +111,12 @@ class TestControleurDePorte
 	public void testOuvre_EnOuverture()
 	{
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.EnOuverture);	
-		cp.ouvre();
+		try {
+			cp.ouvre();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals(cp.set_etatPrecedant(),EnumEtatControleur.EnOuverture);
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.EnAttente);
 
@@ -112,7 +129,12 @@ class TestControleurDePorte
 	public void testFerme_EnFermeture()
 	{
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.EnFermeture);	
-		cp.ferme();
+		try {
+			cp.ferme();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals(cp.set_etatPrecedant(),EnumEtatControleur.EnAttente);
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.PorteOuverte);
 	
@@ -125,7 +147,12 @@ class TestControleurDePorte
 	public void testFerme_EnAttente()
 	{
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.EnAttente);	
-		cp.ferme();
+		try {
+			cp.ferme();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals(cp.set_etatPrecedant(),EnumEtatControleur.EnAttente);
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.EnFermeture);
 	
@@ -138,7 +165,12 @@ class TestControleurDePorte
 	public void testFerme_PorteOuverte()
 	{
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.PorteOuverte);	
-		cp.ferme();
+		try {
+			cp.ferme();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals(cp.set_etatPrecedant(),EnumEtatControleur.PorteOuverte);
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.EnFermeture);
 	
@@ -151,7 +183,12 @@ class TestControleurDePorte
 	public void testUrgence_EnOuverture()
 	{
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.EnOuverture);	
-		cp.urgence();
+		try {
+			cp.urgence();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals(cp.set_etatPrecedant(),EnumEtatControleur.EnAttente);
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.Urgence);
 	
@@ -164,7 +201,12 @@ class TestControleurDePorte
 	public void testUrgence_EnAttente()
 	{
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.EnAttente);	
-		cp.urgence();
+		try {
+			cp.urgence();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals(cp.set_etatPrecedant(),EnumEtatControleur.EnAttente);
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.Urgence);
 	
@@ -177,7 +219,12 @@ class TestControleurDePorte
 	public void testUrgence_EnFermeture()
 	{
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.EnFermeture);	
-		cp.urgence();
+		try {
+			cp.urgence();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals(cp.set_etatPrecedant(),EnumEtatControleur.EnFermeture);
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.Urgence);
 
@@ -250,7 +297,12 @@ class TestControleurDePorte
 	{
 		assertEquals(cp.set_etatPrecedant(),EnumEtatControleur.EnOuverture);
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.Urgence);
-		cp.repriseCle();
+		try {
+			cp.repriseCle();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals(cp.get_etatCourant(),EnumEtatControleur.EnOuverture);	
 		assertEquals(cp.get_etatPrecedant(),EnumEtatControleur.Urgence);
 

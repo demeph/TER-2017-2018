@@ -1,3 +1,5 @@
+package java.fr.unantes.cta;
+
 
 
 import static org.junit.Assert.*;
