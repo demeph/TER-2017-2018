@@ -29,13 +29,6 @@ public class CommunicationWithPC {
 			final ControleurDePorte cp1 = new ControleurDePorte(pt1,portOuverte1,portFermet1);
 			final ControleurDePorte cp2 = new ControleurDePorte(pt2,portOuverte2,portFermet2);
 			
-			
-//			cp1.get_pf().start();
-//			cp1.get_po().start();
-//			
-//			cp2.get_po().start();
-//			cp2.get_pf().start();
-			
 			Telecommande2ctrl teleCommande = new Telecommande2ctrl(cp1,cp2);
 			
 			SocketThread st = new SocketThread();
