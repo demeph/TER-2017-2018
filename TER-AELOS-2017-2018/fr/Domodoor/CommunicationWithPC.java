@@ -24,8 +24,10 @@ public class CommunicationWithPC {
 			
 			Moteur mt1 = new MoteurSimple(new EV3LargeRegulatedMotor(MotorPort.A));
 			Moteur mt2 = new MoteurSimple(new EV3LargeRegulatedMotor(MotorPort.B));
+			
 			Porte pt1 = new Porte(mt1);
 			Porte pt2 = new Porte(mt2);
+			
 			final ControleurDePorte cp1 = new ControleurDePorte(pt1,portOuverte1,portFermet1);
 			final ControleurDePorte cp2 = new ControleurDePorte(pt2,portOuverte2,portFermet2);
 			

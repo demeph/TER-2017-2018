@@ -46,6 +46,7 @@ public class TelecommandeUI {
 		fenetre.setLayout(new GridLayout(3,1));
 		
 		final JLabel label = new  JLabel("Bonjour",SwingConstants.CENTER);	
+		
 		Button butOuverture = new Button("Ouverture de la porte");
 		Button butFermeture = new Button("Fermeture de la porte");
 		

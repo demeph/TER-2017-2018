@@ -1,4 +1,5 @@
 package fr.Domodoor;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -13,36 +14,52 @@ public class SocketThread extends Thread {
 	@SuppressWarnings("resource")
 	@Override
 	public void run() {
-	 	String clientSentence,capitalizedSentence;
-		  
+	 	String clientSentence, capitalizedSentence;  
 	      
 		ServerSocket welcomeSocket = null;
+		
 		try {
+			
 			welcomeSocket = new ServerSocket(5555);
+			
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
+			
 			e1.printStackTrace();
+			
 		}
 
-		 while(true) {
-	    	  try {
-	    		Socket connectionSocket = welcomeSocket.accept();
+		while(true) {
+			
+			try {
+				
+				Socket connectionSocket = welcomeSocket.accept();
 	            BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
 	            DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
 	            clientSentence = inFromClient.readLine();
+	            
 	            if (clientSentence.equals(lesCommandes.ouvrirLaPorte.toString())) {
-	            	_teleCommande.demandeOuverture();		            	 
+	            	
+	            	_teleCommande.demandeOuverture();
+	            	
 	            } else if (clientSentence.equals(lesCommandes.fermerLaPorte.toString())) {
+	            	
 	            	_teleCommande.demandeFermeture();
+	            	
 	            }            
+	            
 	            capitalizedSentence = _teleCommande.get_msgATransporte() + '\n';
 	            outToClient.writeBytes(capitalizedSentence);
-		      }catch (Exception e) {
-					System.out.println(e.getMessage()+":ev3");
-				}
-
-	          
-	      }
+	            
+		    }
+			catch (Exception e) 
+			{
+				
+		    	  System.out.println(e.getMessage()+":ev3");
+		    	  
+		    }
+			
+	     }
+		
 	}
 
 	public Telecommande2ctrl get_teleCommande() {
