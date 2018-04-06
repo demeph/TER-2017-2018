@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Test" nsURI="http://test.com" nsPrefix="Test">
+  <eClassifiers xsi:type="ecore:EClass" name="ControleurDePorte">
+    <eOperations name="enregistreContact" ordered="false" lowerBound="1"/>
+    <eOperations name="ouvre" ordered="false" lowerBound="1"/>
+    <eOperations name="ferme" ordered="false" lowerBound="1"/>
+    <eOperations name="urgence" ordered="false" lowerBound="1"/>
+    <eOperations name="contact" ordered="false" lowerBound="1"/>
+    <eOperations name="repriseCle" ordered="false" lowerBound="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Porte">
+    <eOperations name="ouvre" ordered="false" lowerBound="1"/>
+    <eOperations name="ferme" ordered="false" lowerBound="1"/>
+    <eOperations name="pause" ordered="false" lowerBound="1"/>
+    <eOperations name="fermee" ordered="false" lowerBound="1"/>
+    <eOperations name="ouverte" ordered="false" lowerBound="1"/>
+    <eOperations name="bloque" ordered="false" lowerBound="1"/>
+    <eOperations name="reprend" ordered="false" lowerBound="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Capteur">
+    <eOperations name="contact" ordered="false" lowerBound="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="moteur">
+    <eOperations name="pousser" ordered="false" lowerBound="1"/>
+    <eOperations name="tirer" ordered="false" lowerBound="1"/>
+    <eOperations name="arreter" ordered="false" lowerBound="1"/>
+    <eOperations name="stop" ordered="false" lowerBound="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vitesse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Telecommande">
+    <eOperations name="demandeOuverture" ordered="false" lowerBound="1"/>
+    <eOperations name="demandeFermeture" ordered="false" lowerBound="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Archi">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controleurdeporte" upperBound="-1"
+        eType="#//ControleurDePorte" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="porte" upperBound="-1"
+        eType="#//Porte" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="capteur" upperBound="-1"
+        eType="#//Capteur" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="moteur" upperBound="-1"
+        eType="#//moteur" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="telecommande" upperBound="-1"
+        eType="#//Telecommande" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

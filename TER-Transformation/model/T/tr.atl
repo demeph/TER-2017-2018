@@ -1,0 +1,23 @@
+-- @path T1=/TestEcore/model/ecores/Test.ecore
+-- @path T2=/TestEcore/model/ecores/Test2.ecore
+
+module tr;
+create OUT : T2 from IN : T1;
+
+rule name {
+	from
+		a : T1!Archi
+	to 
+		b : T2!Archi (
+			moteur <- a.moteur
+		)
+}
+
+rule moteur {
+	from
+		m : T1!moteur
+	to 
+		m1 : T2!moteur (
+			vitesse <- m.vitesse + 10
+	)
+}
