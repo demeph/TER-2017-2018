@@ -77,7 +77,6 @@
 		<constant value="20:3-22:3"/>
 		<constant value="__applymoteur"/>
 		<constant value="vitesse"/>
-		<constant value="10"/>
 		<constant value="J.+(J):J"/>
 		<constant value="21:15-21:16"/>
 		<constant value="21:15-21:24"/>
@@ -381,18 +380,18 @@
 			<getasm/>
 			<load arg="29"/>
 			<get arg="75"/>
-			<pushi arg="76"/>
-			<call arg="77"/>
+			<pushi arg="27"/>
+			<call arg="76"/>
 			<call arg="30"/>
 			<set arg="75"/>
 			<pop/>
 		</code>
 		<linenumbertable>
-			<lne id="78" begin="11" end="11"/>
-			<lne id="79" begin="11" end="12"/>
-			<lne id="80" begin="13" end="13"/>
-			<lne id="81" begin="11" end="14"/>
-			<lne id="82" begin="9" end="16"/>
+			<lne id="77" begin="11" end="11"/>
+			<lne id="78" begin="11" end="12"/>
+			<lne id="79" begin="13" end="13"/>
+			<lne id="80" begin="11" end="14"/>
+			<lne id="81" begin="9" end="16"/>
 			<lne id="73" begin="8" end="17"/>
 		</linenumbertable>
 		<localvariabletable>
