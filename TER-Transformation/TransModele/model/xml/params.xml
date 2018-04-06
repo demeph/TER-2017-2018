@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <parameters>
 	<param name="vitesse" value="53"/>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <param name="vitesse" value="51">vitesse</param>
+>>>>>>> bf473302cf08e69e124bf4e0d78b707fe61223ec
 </parameters>

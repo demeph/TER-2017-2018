@@ -1,0 +1,38 @@
+-- @path MM=/TestEcore/ecores/Test.ecore
+-- @path MM1=/TestEcore/ecores/Test2.ecore
+
+
+module testTR;
+
+create OUT : MM1 from IN : MM, parameters : XML;
+
+uses XMLHelpers;
+
+helper def : getParameter(name : String) : String =
+	XML!Element.allInstancesFrom('parameters')->select(e |
+		e.name = 'param'
+	)->select(e |
+		e.getAttrVal('name') = name
+	)->first().getAttrVal('value');
+
+
+helper def : sourceValue  : String = thisModule.getParameter('vitesse');
+
+rule name {
+	from
+		a : MM!Archi
+	to 
+		b : MM1!Archi (
+			moteur <- a.moteur
+		)
+}
+
+rule moteur {
+	from
+		m : MM!moteur
+	to 
+		m1 : MM1!moteur (
+			vitesse <- thisModule.sourceValue.toInteger()
+	)
+}
+
