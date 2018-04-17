@@ -10,10 +10,7 @@ uses XMLHelpers;
 
 helper def : getParameter(name : String) : String =
 	XML!Element.allInstancesFrom('parameters')->select(e |
-		e.name = 'param'
-	)->select(e |
-		e.getAttrVal('name') = name
-	)->first().getAttrVal('value');
+		e.name = name);
 
 
 helper def : sourceValue  : String = thisModule.getParameter('vitesse');

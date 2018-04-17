@@ -1,0 +1,20 @@
+-- @path MM=/TransModele/model/ecores/Test.ecore
+-- @path MM1=/TransModele/model/ecores/param.ecore
+-- @path MM2=/TransModele/model/ecores/Test2.ecore
+
+module new;
+create OUT : MM2 from IN : MM, IN1 : MM1;
+
+helper def : getParameter(name : String) : String =
+	MM1!Parametre->allInstances()->asSequence()->select(e |
+		e.name = name);
+
+rule name {
+	from
+		m1 : MM!moteur  using {
+	        x : MM1!Parametre = thisModule.getParameter(m1.name);
+        } to 
+		m2 : MM2!moteur(
+			vitesse <- x.value
+		)
+}

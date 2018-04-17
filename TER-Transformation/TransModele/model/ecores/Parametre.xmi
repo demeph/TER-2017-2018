@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parametre xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="null param.ecore"
+    name="v"
+    value="5"/>

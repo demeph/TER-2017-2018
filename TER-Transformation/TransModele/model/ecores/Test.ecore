@@ -26,6 +26,7 @@
     <eOperations name="tirer" ordered="false" lowerBound="1"/>
     <eOperations name="arreter" ordered="false" lowerBound="1"/>
     <eOperations name="stop" ordered="false" lowerBound="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Telecommande">
     <eOperations name="demandeOuverture" ordered="false" lowerBound="1"/>
