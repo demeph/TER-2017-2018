@@ -1,0 +1,116 @@
+-- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
+-- @nsURI MM1=uri:http://www.eclipse.org/uml2/5.0.0/UML
+
+module gra;
+create OUT : MM1 from IN : MM;
+
+
+rule CopieColleClasse {
+	from
+		m1 : MM!Class
+	to 
+		m2 : MM1!Class (
+			name <- m1.name,
+			ownedOperation <- m1.ownedOperation,
+			ownedAttribute <- m1.ownedAttribute
+		)
+}
+
+
+rule CopieOps {
+	from 
+		m1 : MM!Operation
+	to
+		m2 : MM1!Operation (
+			name <- m1.name
+--			namespace <- m1.namespace
+		)
+}
+
+rule CopieProperty {
+	from
+		m1 : MM!Property
+	to 
+		m2 : MM1!Property (
+			name <- m1.name,
+			association <- m1.association,
+			type <- m1.type,
+			lowerValue <- m1.lowerValue,
+			upperValue <- m1.upperValue
+		)
+}
+
+rule CopieLiteralInteger {
+	from
+		m1 : MM!LiteralInteger
+	to 
+		m2 : MM1!LiteralInteger (
+			name <- m1.name,
+			value <- m1.value
+		)
+}
+
+rule CopieLiteralUnlimitedNatural {
+	from
+		m1 : MM!LiteralUnlimitedNatural
+	to 
+		m2 : MM1!LiteralUnlimitedNatural (
+			name <- m1.name,
+			value <- m1.value
+		)
+}
+
+
+rule CopieAssociation {
+	from
+		m1 : MM!Association
+	to 
+		m2 : MM1!Association (
+			name <- m1.name,
+			ownedEnd <- m1.ownedEnd,
+			eAnnotations <- m1.eAnnotations
+		)
+}
+
+
+rule CopieEAnnotations {
+	from
+		m1 : MM!EAnnotation
+	to 
+		m2 : MM1!EAnnotation (
+			source <- m1.source,
+			references <- m1.references,
+			details <- m1.details				--TODO
+		)
+}
+
+rule CopieModel {
+	from
+		m1 : MM!Model 
+	to 
+		m2 : MM1!Model  (
+			name <- m1.name,
+			packageImport <- m1.packageImport,
+			packagedElement <- m1.packagedElement
+		)
+}
+
+rule CopiePackageImport {
+	from
+		m1 : MM!PackageImport 
+	to 
+		m2 : MM1!PackageImport  (
+			importedPackage <- m1.importedPackage,
+			visibility <- m1.visibility
+		)
+}
+
+rule CopieEStringToStringMapEntry {
+	from
+		m1 : MM!EStringToStringMapEntry 
+	to 
+		m2 : MM1!EStringToStringMapEntry  (
+			key <- m1.key,
+			value <- m1.value
+		)
+}

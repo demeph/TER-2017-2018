@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_xuE8wESBEeiv5PVbtLGS4g" name="modeleBase">
+  <packageImport xmi:id="_xuE8wUSBEeiv5PVbtLGS4g">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_xuE8wkSBEeiv5PVbtLGS4g" name="Telecommande">
+    <ownedOperation xmi:id="_xuE8w0SBEeiv5PVbtLGS4g" name="demandeOuverture"/>
+    <ownedOperation xmi:id="_xuE8xESBEeiv5PVbtLGS4g" name="demandeFermeture"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_xuE8xUSBEeiv5PVbtLGS4g" name="ControleurDePorte">
+    <ownedOperation xmi:id="_xuE8xkSBEeiv5PVbtLGS4g" name="ouvre"/>
+    <ownedOperation xmi:id="_xuE8x0SBEeiv5PVbtLGS4g" name="ferme"/>
+    <ownedOperation xmi:id="_xuE8yESBEeiv5PVbtLGS4g" name="enregistreContact"/>
+    <ownedOperation xmi:id="_xuE8yUSBEeiv5PVbtLGS4g" name="urgence"/>
+    <ownedOperation xmi:id="_xuE8ykSBEeiv5PVbtLGS4g" name="contact"/>
+    <ownedOperation xmi:id="_xuE8y0SBEeiv5PVbtLGS4g" name="repriseCle"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_xuE8zESBEeiv5PVbtLGS4g" name="Capteur">
+    <ownedOperation xmi:id="_xuE8zUSBEeiv5PVbtLGS4g" name="contact"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_xuE8zkSBEeiv5PVbtLGS4g" name="Porte">
+    <ownedOperation xmi:id="_xuE8z0SBEeiv5PVbtLGS4g" name="ouvre"/>
+    <ownedOperation xmi:id="_xuE80ESBEeiv5PVbtLGS4g" name="ferme"/>
+    <ownedOperation xmi:id="_xuE80USBEeiv5PVbtLGS4g" name="pause"/>
+    <ownedOperation xmi:id="_xuE80kSBEeiv5PVbtLGS4g" name="fermee"/>
+    <ownedOperation xmi:id="_xuE800SBEeiv5PVbtLGS4g" name="ouverte"/>
+    <ownedOperation xmi:id="_xuE81ESBEeiv5PVbtLGS4g" name="bloque"/>
+    <ownedOperation xmi:id="_xuE81USBEeiv5PVbtLGS4g" name="reprend"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_xuE81kSBEeiv5PVbtLGS4g" name="Moteur">
+    <ownedOperation xmi:id="_xuE810SBEeiv5PVbtLGS4g" name="pousser"/>
+    <ownedOperation xmi:id="_xuE82ESBEeiv5PVbtLGS4g" name="tirer"/>
+    <ownedOperation xmi:id="_xuE82USBEeiv5PVbtLGS4g" name="stop"/>
+    <ownedOperation xmi:id="_xuE82kSBEeiv5PVbtLGS4g" name="arreter"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_xuE820SBEeiv5PVbtLGS4g" memberEnd="_xuE83kSBEeiv5PVbtLGS4g _xuE830SBEeiv5PVbtLGS4g">
+    <eAnnotations xmi:id="_xuE83ESBEeiv5PVbtLGS4g" source="org.eclipse.papyrus">
+      <details xmi:id="_xuE83USBEeiv5PVbtLGS4g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_xuE83kSBEeiv5PVbtLGS4g" name="mt" type="_xuE81kSBEeiv5PVbtLGS4g" association="_xuE820SBEeiv5PVbtLGS4g"/>
+    <ownedEnd xmi:id="_xuE830SBEeiv5PVbtLGS4g" name="pt" type="_xuE8zkSBEeiv5PVbtLGS4g" association="_xuE820SBEeiv5PVbtLGS4g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xuE84ESBEeiv5PVbtLGS4g" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xuE84USBEeiv5PVbtLGS4g" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_xuE84kSBEeiv5PVbtLGS4g" memberEnd="_xuE85USBEeiv5PVbtLGS4g _xuE85kSBEeiv5PVbtLGS4g">
+    <eAnnotations xmi:id="_xuE840SBEeiv5PVbtLGS4g" source="org.eclipse.papyrus">
+      <details xmi:id="_xuE85ESBEeiv5PVbtLGS4g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_xuE85USBEeiv5PVbtLGS4g" name="ctrl" type="_xuE8xUSBEeiv5PVbtLGS4g" association="_xuE84kSBEeiv5PVbtLGS4g"/>
+    <ownedEnd xmi:id="_xuE85kSBEeiv5PVbtLGS4g" name="pt" type="_xuE8zkSBEeiv5PVbtLGS4g" association="_xuE84kSBEeiv5PVbtLGS4g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xuE850SBEeiv5PVbtLGS4g" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xuE86ESBEeiv5PVbtLGS4g" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_xuE86USBEeiv5PVbtLGS4g" memberEnd="_xuE87ESBEeiv5PVbtLGS4g _xuE870SBEeiv5PVbtLGS4g">
+    <eAnnotations xmi:id="_xuE86kSBEeiv5PVbtLGS4g" source="org.eclipse.papyrus">
+      <details xmi:id="_xuE860SBEeiv5PVbtLGS4g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_xuE87ESBEeiv5PVbtLGS4g" name="pf" type="_xuE8zESBEeiv5PVbtLGS4g" association="_xuE86USBEeiv5PVbtLGS4g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xuE87USBEeiv5PVbtLGS4g" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xuE87kSBEeiv5PVbtLGS4g" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_xuE870SBEeiv5PVbtLGS4g" name="cpt" type="_xuE8xUSBEeiv5PVbtLGS4g" association="_xuE86USBEeiv5PVbtLGS4g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_xuE88ESBEeiv5PVbtLGS4g" memberEnd="_xuE880SBEeiv5PVbtLGS4g _xuE89ESBEeiv5PVbtLGS4g">
+    <eAnnotations xmi:id="_xuE88USBEeiv5PVbtLGS4g" source="org.eclipse.papyrus">
+      <details xmi:id="_xuE88kSBEeiv5PVbtLGS4g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_xuE880SBEeiv5PVbtLGS4g" name="po" type="_xuE8zESBEeiv5PVbtLGS4g" association="_xuE88ESBEeiv5PVbtLGS4g"/>
+    <ownedEnd xmi:id="_xuE89ESBEeiv5PVbtLGS4g" name="cpt" type="_xuE8xUSBEeiv5PVbtLGS4g" association="_xuE88ESBEeiv5PVbtLGS4g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xuE89USBEeiv5PVbtLGS4g" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xuFj0ESBEeiv5PVbtLGS4g" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_xuFj0USBEeiv5PVbtLGS4g" memberEnd="_xuFj1ESBEeiv5PVbtLGS4g _xuFj1USBEeiv5PVbtLGS4g">
+    <eAnnotations xmi:id="_xuFj0kSBEeiv5PVbtLGS4g" source="org.eclipse.papyrus">
+      <details xmi:id="_xuFj00SBEeiv5PVbtLGS4g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_xuFj1ESBEeiv5PVbtLGS4g" name="ctrl" type="_xuE8xUSBEeiv5PVbtLGS4g" association="_xuFj0USBEeiv5PVbtLGS4g"/>
+    <ownedEnd xmi:id="_xuFj1USBEeiv5PVbtLGS4g" name="tele" type="_xuE8wkSBEeiv5PVbtLGS4g" association="_xuFj0USBEeiv5PVbtLGS4g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xuFj1kSBEeiv5PVbtLGS4g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xuFj10SBEeiv5PVbtLGS4g" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>
