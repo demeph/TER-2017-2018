@@ -1,0 +1,16 @@
+-- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
+-- @atlcompiler atl2010
+
+module testDrop;
+
+create OUT : MM refining IN : MM;
+
+rule Class2Class 
+{
+	from
+        m1 : MM!Property (
+        	m1.name = 'newAttribute'
+		)
+    to
+		drop
+}

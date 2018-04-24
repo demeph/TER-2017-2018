@@ -1,0 +1,17 @@
+-- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
+
+module testRefining;
+create OUT : MM refining IN : MM;
+
+rule Class2Class 
+{
+	from
+        m1 : MM!Association
+    to
+        m2 : MM!Class (
+            ownedAttribute <- m1.ownedAttribute.including(m3)
+        ),
+		
+        m3 : MM!Property (
+        )
+}

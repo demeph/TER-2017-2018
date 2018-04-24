@@ -1,4 +1,4 @@
--- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
+
 -- @nsURI MM1=uri:http://www.eclipse.org/uml2/5.0.0/UML
 
 module gra;
@@ -16,14 +16,13 @@ rule CopieColleClasse {
 		)
 }
 
-
 rule CopieOps {
 	from 
-		m1 : MM!Operation
+		m1 : MM!Operation 
 	to
 		m2 : MM1!Operation (
-			name <- m1.name
---			namespace <- m1.namespace
+			name <- m1.name,
+			visibility <- m1.visibility
 		)
 }
 
@@ -34,6 +33,7 @@ rule CopieProperty {
 		m2 : MM1!Property (
 			name <- m1.name,
 			association <- m1.association,
+			aggregation <- m1.aggregation,
 			type <- m1.type,
 			lowerValue <- m1.lowerValue,
 			upperValue <- m1.upperValue
@@ -68,7 +68,8 @@ rule CopieAssociation {
 		m2 : MM1!Association (
 			name <- m1.name,
 			ownedEnd <- m1.ownedEnd,
-			eAnnotations <- m1.eAnnotations
+			eAnnotations <- m1.eAnnotations,
+			memberEnd <- m1.memberEnd
 		)
 }
 
@@ -80,7 +81,7 @@ rule CopieEAnnotations {
 		m2 : MM1!EAnnotation (
 			source <- m1.source,
 			references <- m1.references,
-			details <- m1.details				--TODO
+			details <- m1.details
 		)
 }
 
@@ -89,7 +90,7 @@ rule CopieModel {
 		m1 : MM!Model 
 	to 
 		m2 : MM1!Model  (
-			name <- m1.name,
+			name <- 'ModeleSortie',
 			packageImport <- m1.packageImport,
 			packagedElement <- m1.packagedElement
 		)
@@ -112,5 +113,15 @@ rule CopieEStringToStringMapEntry {
 		m2 : MM1!EStringToStringMapEntry  (
 			key <- m1.key,
 			value <- m1.value
+		)
+}
+
+
+rule CopiePrimitiveType {
+	from
+		m1 : MM!PrimitiveType
+	to 
+		m2 : MM1!PrimitiveType (
+			
 		)
 }
