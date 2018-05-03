@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_fbU4wERuEeiv5PVbtLGS4g" name="modeleBase">
   <packageImport xmi:id="_fiFoEERuEeiv5PVbtLGS4g">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -32,6 +32,7 @@
     <ownedOperation xmi:id="_lduDkERvEeiv5PVbtLGS4g" name="tirer"/>
     <ownedOperation xmi:id="_sFnkoERvEeiv5PVbtLGS4g" name="stop"/>
     <ownedOperation xmi:id="_tK05MERvEeiv5PVbtLGS4g" name="arreter"/>
+    <nestedClassifier xmi:type="uml:Stereotype" xmi:id="_Kx-IgEnnEeiXEvaRyhLX1g" name="Actionneur"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_WwF8EERwEeiv5PVbtLGS4g" memberEnd="_WwIYUERwEeiv5PVbtLGS4g _WwfksERwEeiv5PVbtLGS4g">
     <eAnnotations xmi:id="_WwHxQERwEeiv5PVbtLGS4g" source="org.eclipse.papyrus">

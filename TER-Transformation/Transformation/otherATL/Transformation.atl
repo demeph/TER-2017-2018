@@ -1,4 +1,3 @@
-
 -- @nsURI MM1=uri:http://www.eclipse.org/uml2/5.0.0/UML
 
 module gra;

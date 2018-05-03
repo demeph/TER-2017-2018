@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Enumeration xmi:id="_QyfrIE4GEeiTdN58Ecso4w" name="enumPorte">
+    <ownedLiteral xmi:id="_QyfrIU4GEeiTdN58Ecso4w" name="PorteFermee"/>
+    <ownedLiteral xmi:id="_QyfrIk4GEeiTdN58Ecso4w" name="PorteOuverte"/>
+    <ownedLiteral xmi:id="_QyfrI04GEeiTdN58Ecso4w" name="PorteBloquee"/>
+    <ownedLiteral xmi:id="_QyfrJE4GEeiTdN58Ecso4w" name="mouvement"/>
+    <ownedLiteral xmi:id="_QyfrJU4GEeiTdN58Ecso4w" name="EnOuverture"/>
+    <ownedLiteral xmi:id="_QyfrJk4GEeiTdN58Ecso4w" name="PorteArretee"/>
+    <ownedLiteral xmi:id="_QyfrJ04GEeiTdN58Ecso4w" name="EnFermeture"/>
+  </uml:Enumeration>
+  <uml:Model xmi:id="_QyfrKE4GEeiTdN58Ecso4w" name="ModeleSortie">
+    <packageImport xmi:id="_QyfrKU4GEeiTdN58Ecso4w">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_QyfrKk4GEeiTdN58Ecso4w" name="Telecommande">
+      <ownedOperation xmi:id="_QyfrK04GEeiTdN58Ecso4w" name="demandeOuverture" visibility="public"/>
+      <ownedOperation xmi:id="_QyfrLE4GEeiTdN58Ecso4w" name="demandeFermeture" visibility="public"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_QyfrLU4GEeiTdN58Ecso4w" name="ControleurDePorte">
+      <ownedOperation xmi:id="_QyfrLk4GEeiTdN58Ecso4w" name="ouvre" visibility="public"/>
+      <ownedOperation xmi:id="_QyfrL04GEeiTdN58Ecso4w" name="ferme" visibility="public"/>
+      <ownedOperation xmi:id="_QyfrME4GEeiTdN58Ecso4w" name="enregistreContact" visibility="public"/>
+      <ownedOperation xmi:id="_QyfrMU4GEeiTdN58Ecso4w" name="urgence" visibility="public"/>
+      <ownedOperation xmi:id="_QyfrMk4GEeiTdN58Ecso4w" name="contact" visibility="public"/>
+      <ownedOperation xmi:id="_QyfrM04GEeiTdN58Ecso4w" name="repriseCle" visibility="public"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_QyfrNE4GEeiTdN58Ecso4w" name="Capteur">
+      <ownedOperation xmi:id="_QyfrNU4GEeiTdN58Ecso4w" name="contact" visibility="public"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_QyfrNk4GEeiTdN58Ecso4w" name="Porte">
+      <ownedOperation xmi:id="_QyfrN04GEeiTdN58Ecso4w" name="ouvre" visibility="public"/>
+      <ownedOperation xmi:id="_QyfrOE4GEeiTdN58Ecso4w" name="ferme" visibility="public"/>
+      <ownedOperation xmi:id="_QyfrOU4GEeiTdN58Ecso4w" name="pause" visibility="public"/>
+      <ownedOperation xmi:id="_QyfrOk4GEeiTdN58Ecso4w" name="fermee" visibility="public"/>
+      <ownedOperation xmi:id="_QyfrO04GEeiTdN58Ecso4w" name="ouverte" visibility="public"/>
+      <ownedOperation xmi:id="_QyfrPE4GEeiTdN58Ecso4w" name="bloque" visibility="public"/>
+      <ownedOperation xmi:id="_QyfrPU4GEeiTdN58Ecso4w" name="reprend" visibility="public"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_QyfrPk4GEeiTdN58Ecso4w" name="Moteur">
+      <ownedOperation xmi:id="_QyfrP04GEeiTdN58Ecso4w" name="pousser" visibility="public"/>
+      <ownedOperation xmi:id="_QyfrQE4GEeiTdN58Ecso4w" name="tirer" visibility="public"/>
+      <ownedOperation xmi:id="_QyfrQU4GEeiTdN58Ecso4w" name="stop" visibility="public"/>
+      <ownedOperation xmi:id="_QyfrQk4GEeiTdN58Ecso4w" name="arreter" visibility="public"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_QyfrQ04GEeiTdN58Ecso4w" memberEnd="_QyfrRk4GEeiTdN58Ecso4w _QyfrR04GEeiTdN58Ecso4w">
+      <eAnnotations xmi:id="_QyfrRE4GEeiTdN58Ecso4w" source="org.eclipse.papyrus">
+        <details xmi:id="_QyfrRU4GEeiTdN58Ecso4w" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="_QyfrRk4GEeiTdN58Ecso4w" name="mt" type="_QyfrPk4GEeiTdN58Ecso4w" aggregation="shared" association="_QyfrQ04GEeiTdN58Ecso4w"/>
+      <ownedEnd xmi:id="_QyfrR04GEeiTdN58Ecso4w" name="pt" type="_QyfrNk4GEeiTdN58Ecso4w" association="_QyfrQ04GEeiTdN58Ecso4w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QyfrSE4GEeiTdN58Ecso4w" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QyfrSU4GEeiTdN58Ecso4w" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_QyfrSk4GEeiTdN58Ecso4w" memberEnd="_QyfrTU4GEeiTdN58Ecso4w _QyfrTk4GEeiTdN58Ecso4w">
+      <eAnnotations xmi:id="_QyfrS04GEeiTdN58Ecso4w" source="org.eclipse.papyrus">
+        <details xmi:id="_QyfrTE4GEeiTdN58Ecso4w" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="_QyfrTU4GEeiTdN58Ecso4w" name="ctrl" type="_QyfrLU4GEeiTdN58Ecso4w" association="_QyfrSk4GEeiTdN58Ecso4w"/>
+      <ownedEnd xmi:id="_QyfrTk4GEeiTdN58Ecso4w" name="pt" type="_QyfrNk4GEeiTdN58Ecso4w" aggregation="shared" association="_QyfrSk4GEeiTdN58Ecso4w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QyfrT04GEeiTdN58Ecso4w" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QyfrUE4GEeiTdN58Ecso4w" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_QyfrUU4GEeiTdN58Ecso4w" memberEnd="_QyfrVE4GEeiTdN58Ecso4w _QyfrV04GEeiTdN58Ecso4w">
+      <eAnnotations xmi:id="_QyfrUk4GEeiTdN58Ecso4w" source="org.eclipse.papyrus">
+        <details xmi:id="_QyfrU04GEeiTdN58Ecso4w" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="_QyfrVE4GEeiTdN58Ecso4w" name="pf" type="_QyfrNE4GEeiTdN58Ecso4w" aggregation="shared" association="_QyfrUU4GEeiTdN58Ecso4w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QyfrVU4GEeiTdN58Ecso4w" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QyfrVk4GEeiTdN58Ecso4w" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_QyfrV04GEeiTdN58Ecso4w" name="cpt" type="_QyfrLU4GEeiTdN58Ecso4w" association="_QyfrUU4GEeiTdN58Ecso4w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_QyfrWE4GEeiTdN58Ecso4w" memberEnd="_QyfrW04GEeiTdN58Ecso4w _QyfrXE4GEeiTdN58Ecso4w">
+      <eAnnotations xmi:id="_QyfrWU4GEeiTdN58Ecso4w" source="org.eclipse.papyrus">
+        <details xmi:id="_QyfrWk4GEeiTdN58Ecso4w" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="_QyfrW04GEeiTdN58Ecso4w" name="po" type="_QyfrNE4GEeiTdN58Ecso4w" aggregation="shared" association="_QyfrWE4GEeiTdN58Ecso4w"/>
+      <ownedEnd xmi:id="_QyfrXE4GEeiTdN58Ecso4w" name="cpt" type="_QyfrLU4GEeiTdN58Ecso4w" association="_QyfrWE4GEeiTdN58Ecso4w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QyfrXU4GEeiTdN58Ecso4w" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QyfrXk4GEeiTdN58Ecso4w" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_QyfrX04GEeiTdN58Ecso4w" memberEnd="_QyfrYk4GEeiTdN58Ecso4w _QyfrY04GEeiTdN58Ecso4w">
+      <eAnnotations xmi:id="_QyfrYE4GEeiTdN58Ecso4w" source="org.eclipse.papyrus">
+        <details xmi:id="_QyfrYU4GEeiTdN58Ecso4w" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="_QyfrYk4GEeiTdN58Ecso4w" name="ctrl" type="_QyfrLU4GEeiTdN58Ecso4w" association="_QyfrX04GEeiTdN58Ecso4w"/>
+      <ownedEnd xmi:id="_QyfrY04GEeiTdN58Ecso4w" name="tele" type="_QyfrKk4GEeiTdN58Ecso4w" association="_QyfrX04GEeiTdN58Ecso4w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QyfrZE4GEeiTdN58Ecso4w"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QyfrZU4GEeiTdN58Ecso4w" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>

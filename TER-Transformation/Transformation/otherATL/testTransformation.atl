@@ -1,0 +1,19 @@
+-- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
+
+module testTransformation;
+create OUT : MM refining IN : MM;
+
+rule name {
+	from
+		m1 : MM!Class (
+			m1.nestedClassifier->select(e|e.name = 'Actionneur')->notEmpty()
+			) 
+	to 
+		m2 : MM!Class (
+			ownedAttribute <- m1.ownedAttribute.including(attribut)
+		),
+		attribut : MM!Property(
+			name <- 'vitesse',
+			type <- m1
+			)
+}

@@ -27,7 +27,7 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_cVJ8kERvEeiv5PVbtLGS4g" name="bloque"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_eBvaMERvEeiv5PVbtLGS4g" name="reprend"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_gRU3MERvEeiv5PVbtLGS4g" name="Moteur">
+  <packagedElement xmi:type="uml:Class" xmi:id="_gRU3MERvEeiv5PVbtLGS4g" name="Moteur" visibility="package">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_iZSpQERvEeiv5PVbtLGS4g" name="pousser"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_lduDkERvEeiv5PVbtLGS4g" name="tirer"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_sFnkoERvEeiv5PVbtLGS4g" name="stop"/>
@@ -82,5 +82,19 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MfxtYERxEeiv5PVbtLGS4g"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MfxtYURxEeiv5PVbtLGS4g" value="*"/>
     </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_KMBhoE6vEei95fPNsQ970g" name="StateMachineMoteur">
+    <region xmi:type="uml:Region" xmi:id="_LeE_YE6vEei95fPNsQ970g" name="Region1">
+      <transition xmi:type="uml:Transition" xmi:id="_NhUCcE6vEei95fPNsQ970g" name="stoppe" source="_M09SwE6vEei95fPNsQ970g" target="_M09SwE6vEei95fPNsQ970g"/>
+      <transition xmi:type="uml:Transition" xmi:id="_UX6G0E6vEei95fPNsQ970g" name="stoppe" source="_MOaQIE6vEei95fPNsQ970g" target="_M09SwE6vEei95fPNsQ970g"/>
+      <transition xmi:type="uml:Transition" xmi:id="_WXxFwE6vEei95fPNsQ970g" name="pousse / pousser()" source="_M09SwE6vEei95fPNsQ970g" target="_MOaQIE6vEei95fPNsQ970g"/>
+      <transition xmi:type="uml:Transition" xmi:id="_ZfIfUE6vEei95fPNsQ970g" name="tire / tirer()" source="_M09SwE6vEei95fPNsQ970g" target="_MiIdYE6vEei95fPNsQ970g"/>
+      <transition xmi:type="uml:Transition" xmi:id="_bp7i8E6vEei95fPNsQ970g" name="stoppe" source="_MiIdYE6vEei95fPNsQ970g" target="_M09SwE6vEei95fPNsQ970g"/>
+      <transition xmi:type="uml:Transition" xmi:id="_egdrME6vEei95fPNsQ970g" source="_dKR7YE6vEei95fPNsQ970g" target="_M09SwE6vEei95fPNsQ970g"/>
+      <subvertex xmi:type="uml:State" xmi:id="_MOaQIE6vEei95fPNsQ970g" name="MoteurEnPoussee"/>
+      <subvertex xmi:type="uml:State" xmi:id="_MiIdYE6vEei95fPNsQ970g" name="MoteurEnTiree"/>
+      <subvertex xmi:type="uml:State" xmi:id="_M09SwE6vEei95fPNsQ970g" name="MoteurArret"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_dKR7YE6vEei95fPNsQ970g" name="Initial9"/>
+    </region>
   </packagedElement>
 </uml:Model>

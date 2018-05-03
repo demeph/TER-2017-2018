@@ -1,0 +1,40 @@
+-- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
+
+module transformation3;
+create OUT : MM refining IN : MM;
+
+
+rule etatCourant {
+	from
+		classDepart : MM!Class,enum : MM!Enumeration ( 
+			classDepart.name = enum.name.substring(5,enum.name.size())
+		)
+	to 
+		classArrive : MM!Class (
+			ownedAttribute <- classDepart.ownedAttribute.including(attr1),
+			ownedAttribute <- classDepart.ownedAttribute.including(attr2)
+		),
+		attr1 : MM!Property (
+			 name <- '_etatCourant',
+			 type <- enum
+		),
+		attr2 : MM!Property (
+			 name <- '_etatPrecedent',
+			 type <- enum
+		)
+}
+
+rule CopieModel {
+	from
+		m1 : MM!Model,enum : MM!Enumeration
+	to 
+		m2 : MM!Model  (
+			name <- 'ModeleSortie',
+			packageImport <- m1.packageImport,
+			packagedElement <- m1.packagedElement.including(enumAdd)
+		),
+		enumAdd : MM!Enumeration (
+			name <- enum.name,
+			ownedLiteral <- enum.ownedLiteral
+		)
+}

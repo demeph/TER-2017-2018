@@ -32,6 +32,7 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_lduDkERvEeiv5PVbtLGS4g" name="tirer"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_sFnkoERvEeiv5PVbtLGS4g" name="stop"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_tK05MERvEeiv5PVbtLGS4g" name="arreter"/>
+    <nestedClassifier xmi:type="uml:Stereotype" xmi:id="_Kx-IgEnnEeiXEvaRyhLX1g" name="Actionneur"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_WwF8EERwEeiv5PVbtLGS4g" memberEnd="_WwIYUERwEeiv5PVbtLGS4g _WwfksERwEeiv5PVbtLGS4g">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WwHxQERwEeiv5PVbtLGS4g" source="org.eclipse.papyrus">
