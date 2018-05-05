@@ -1,0 +1,11 @@
+-- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
+-- @atlcompiler atl2010
+module Clean;
+create OUT : MM refining IN : MM;
+
+rule clean {
+	from
+		classe : MM!Class (classe.ownedOperation->isEmpty())
+	to 
+		drop
+}

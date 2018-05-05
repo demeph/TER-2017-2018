@@ -1,0 +1,24 @@
+-- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
+
+module addEnumAttribute;
+create OUT : MM refining IN : MM;
+
+rule addEnumAttribute {
+	from
+		classe : MM!Class, enum : MM!Enumeration,stereo : MM!Stereotype (
+			classe.nestedClassifier->select(e | e.name = stereo.name )->notEmpty() and enum.ownedUseCase->select(e | e.name = stereo.name)->notEmpty() 
+		)
+	to 
+		classeArrivee : MM!Class (
+			ownedAttribute <- classe.ownedAttribute.including(attr),
+			ownedAttribute <- classe.ownedAttribute.including(attr2)		
+		),
+		attr : MM!Property(
+			name <- '_etatCourant',
+			type <- enum
+		),
+		attr2 : MM!Property (
+			name <- '_etatPrecedent',
+			type <- enum
+		)
+}

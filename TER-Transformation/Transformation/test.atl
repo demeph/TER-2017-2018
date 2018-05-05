@@ -1,0 +1,193 @@
+-- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
+-- @nsURI MM1=uri:http://www.eclipse.org/uml2/5.0.0/UML
+
+module test;
+create OUT : MM from IN : MM, IN1 : MM1;
+
+
+helper def : getOneEnumLit : 
+    Sequence(MM!EnumerationLiteral) =
+        MM1!State.allInstances();
+
+
+rule Enum2Enum {
+	 from
+        enum1 :  MM!Enumeration
+    to 
+        enum2 : MM!Enumeration(
+            name <- enum1.name,
+			ownedLiteral <- enum1.ownedLiteral
+        )
+}
+
+rule EnumLit2EnumLit {
+	 from
+        enum1 :  MM!EnumerationLiteral
+    to 
+        enum2 : MM!EnumerationLiteral(
+            name <- enum1.name
+        )
+}
+
+
+
+-- on part de l'énum, on la select car on sait laquelle c'est et derrière on la rempli
+
+rule remplissage {
+    from
+        etat : MM1!State 
+    to 
+        m2 : MM!EnumerationLiteral (
+            name <- etat.name
+        )
+}
+
+rule CopieColleClasse1 {
+	from
+		m1 : MM!Class
+	to 
+		m2 : MM!Class (
+			name <- m1.name,
+			ownedOperation <- m1.ownedOperation,
+			ownedAttribute <- m1.ownedAttribute,
+			nestedClassifier <- m1.nestedClassifier
+		)
+}
+
+rule CopieColleClasse2 {
+	from
+		m1 : MM!Class, etat : MM1!StateMachine,stereotype : MM!Stereotype (
+						m1.nestedClassifier->select(e|e.name = stereotype.name)->notEmpty() and etat.nestedClassifier->select(e|e.name = stereotype.name)->notEmpty() 
+		)
+	to 
+		m2 : MM!Class (
+			name <- m1.name,
+			ownedOperation <- m1.ownedOperation,
+			ownedAttribute <- m1.ownedAttribute.including(attr1),
+			ownedAttribute <- m1.ownedAttribute.including(attr2),
+			nestedClassifier <- m1.nestedClassifier
+		),
+		enum2 : MM!Enumeration(
+            name <- 'enum'.concat(etat.name.toString()),
+			ownedLiteral <- thisModule.getOneEnumLit
+        ),
+		attr1 : MM!Property (
+			 name <- '_etatCourant',
+			 type <- enum2
+		),
+		attr2 : MM!Property (
+			 name <- '_etatPrecedent',
+			 type <- enum2
+		)
+}
+
+rule CopieOps {
+	from 
+		m1 : MM!Operation 
+	to
+		m2 : MM!Operation (
+			name <- m1.name,
+			visibility <- m1.visibility
+		)
+}
+
+rule CopieProperty {
+	from
+		m1 : MM!Property
+	to 
+		m2 : MM!Property (
+			name <- m1.name,
+			association <- m1.association,
+			aggregation <- m1.aggregation,
+			type <- m1.type,
+			lowerValue <- m1.lowerValue,
+			upperValue <- m1.upperValue
+		)
+}
+
+
+rule CopieLiteralInteger {
+	from
+		m1 : MM!LiteralInteger
+	to 
+		m2 : MM!LiteralInteger (
+			name <- m1.name,
+			value <- m1.value
+		)
+}
+
+rule CopieLiteralUnlimitedNatural {
+	from
+		m1 : MM!LiteralUnlimitedNatural
+	to 
+		m2 : MM!LiteralUnlimitedNatural (
+			name <- m1.name,
+			value <- m1.value
+		)
+}
+
+
+rule CopieAssociation {
+	from
+		m1 : MM!Association
+	to 
+		m2 : MM!Association (
+			name <- m1.name,
+			ownedEnd <- m1.ownedEnd,
+			eAnnotations <- m1.eAnnotations,
+			memberEnd <- m1.memberEnd
+		)
+}
+
+
+rule CopieEAnnotations {
+	from
+		m1 : MM!EAnnotation
+	to 
+		m2 : MM!EAnnotation (
+			source <- m1.source,
+			references <- m1.references,
+			details <- m1.details
+		)
+}
+
+rule CopieModel {
+	from
+		m1 : MM!Model
+	to 
+		m2 : MM!Model  (
+			name <- 'ModeleSortie',
+			packageImport <- m1.packageImport,
+			packagedElement <- m1.packagedElement
+		)
+}
+
+rule CopiePackageImport {
+	from
+		m1 : MM!PackageImport 
+	to 
+		m2 : MM!PackageImport  (
+			importedPackage <- m1.importedPackage,
+			visibility <- m1.visibility
+		)
+}
+
+rule CopieEStringToStringMapEntry {
+	from
+		m1 : MM!EStringToStringMapEntry 
+	to 
+		m2 : MM!EStringToStringMapEntry  (
+			key <- m1.key,
+			value <- m1.value
+		)
+}
+
+
+rule CopiePrimitiveType {
+	from
+		m1 : MM!PrimitiveType
+	to 
+		m2 : MM!PrimitiveType (
+			
+		)
+}

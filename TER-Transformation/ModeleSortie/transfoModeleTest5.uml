@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Enumeration xmi:id="_o5bMkE9_EeiixNNpY7hAVg" name="enumPorte"/>
+  <uml:Enumeration xmi:id="_o5bMmE9_EeiixNNpY7hAVg" name="enumControleurDePorte"/>
+  <uml:Class xmi:id="_o5bMoE9_EeiixNNpY7hAVg" name="Porte">
+    <ownedAttribute xmi:id="_o5bMoU9_EeiixNNpY7hAVg" name="_etatCourant" type="_o5bMkE9_EeiixNNpY7hAVg"/>
+    <ownedAttribute xmi:id="_o5bMok9_EeiixNNpY7hAVg" name="_etatPrecedent" type="_o5bMkE9_EeiixNNpY7hAVg"/>
+    <ownedOperation xmi:id="_o5bMo09_EeiixNNpY7hAVg" name="ouvre" visibility="public"/>
+    <ownedOperation xmi:id="_o5bMpE9_EeiixNNpY7hAVg" name="ferme" visibility="public"/>
+    <ownedOperation xmi:id="_o5bMpU9_EeiixNNpY7hAVg" name="pause" visibility="public"/>
+    <ownedOperation xmi:id="_o5bMpk9_EeiixNNpY7hAVg" name="fermee" visibility="public"/>
+    <ownedOperation xmi:id="_o5bMp09_EeiixNNpY7hAVg" name="ouverte" visibility="public"/>
+    <ownedOperation xmi:id="_o5bMqE9_EeiixNNpY7hAVg" name="bloque" visibility="public"/>
+    <ownedOperation xmi:id="_o5bMqU9_EeiixNNpY7hAVg" name="reprend" visibility="public"/>
+  </uml:Class>
+  <uml:Class xmi:id="_o5bMq09_EeiixNNpY7hAVg" name="ControleurDePorte">
+    <ownedAttribute xmi:id="_o5bMrE9_EeiixNNpY7hAVg" name="_etatCourant" type="_o5bMmE9_EeiixNNpY7hAVg"/>
+    <ownedAttribute xmi:id="_o5bMrU9_EeiixNNpY7hAVg" name="_etatPrecedent" type="_o5bMmE9_EeiixNNpY7hAVg"/>
+    <ownedOperation xmi:id="_o5bMrk9_EeiixNNpY7hAVg" name="ouvre" visibility="public"/>
+    <ownedOperation xmi:id="_o5bMr09_EeiixNNpY7hAVg" name="ferme" visibility="public"/>
+    <ownedOperation xmi:id="_o5bMsE9_EeiixNNpY7hAVg" name="enregistreContact" visibility="public"/>
+    <ownedOperation xmi:id="_o5bMsU9_EeiixNNpY7hAVg" name="urgence" visibility="public"/>
+    <ownedOperation xmi:id="_o5bMsk9_EeiixNNpY7hAVg" name="contact" visibility="public"/>
+    <ownedOperation xmi:id="_o5bMs09_EeiixNNpY7hAVg" name="repriseCle" visibility="public"/>
+  </uml:Class>
+  <uml:Class xmi:id="_o5bMtU9_EeiixNNpY7hAVg" name="Moteur">
+    <ownedAttribute xmi:id="_o5bMtk9_EeiixNNpY7hAVg" name="_etatCourant" type="_o5bMvk9_EeiixNNpY7hAVg"/>
+    <ownedAttribute xmi:id="_o5bMt09_EeiixNNpY7hAVg" name="_etatPrecedent" type="_o5bMvk9_EeiixNNpY7hAVg"/>
+    <ownedOperation xmi:id="_o5bMuE9_EeiixNNpY7hAVg" name="pousser" visibility="public"/>
+    <ownedOperation xmi:id="_o5bMuU9_EeiixNNpY7hAVg" name="tirer" visibility="public"/>
+    <ownedOperation xmi:id="_o5bMuk9_EeiixNNpY7hAVg" name="stop" visibility="public"/>
+    <ownedOperation xmi:id="_o5bMu09_EeiixNNpY7hAVg" name="arreter" visibility="public"/>
+  </uml:Class>
+  <uml:Enumeration xmi:id="_o5bMvk9_EeiixNNpY7hAVg" name="enumMoteur"/>
+  <uml:Model xmi:id="_o5bMwk9_EeiixNNpY7hAVg" name="ModeleSortie">
+    <packageImport xmi:id="_o5bMw09_EeiixNNpY7hAVg">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_o5bMxE9_EeiixNNpY7hAVg" name="Telecommande">
+      <ownedOperation xmi:id="_o5bMxU9_EeiixNNpY7hAVg" name="demandeOuverture" visibility="public"/>
+      <ownedOperation xmi:id="_o5bMxk9_EeiixNNpY7hAVg" name="demandeFermeture" visibility="public"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_o5bMyE9_EeiixNNpY7hAVg" name="Capteur">
+      <ownedOperation xmi:id="_o5bMyU9_EeiixNNpY7hAVg" name="contact" visibility="public"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_o5bMzE9_EeiixNNpY7hAVg" memberEnd="_o5bMz09_EeiixNNpY7hAVg _o5bM0E9_EeiixNNpY7hAVg">
+      <eAnnotations xmi:id="_o5bMzU9_EeiixNNpY7hAVg" source="org.eclipse.papyrus">
+        <details xmi:id="_o5bMzk9_EeiixNNpY7hAVg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="_o5bMz09_EeiixNNpY7hAVg" name="mt" aggregation="shared" association="_o5bMzE9_EeiixNNpY7hAVg"/>
+      <ownedEnd xmi:id="_o5bM0E9_EeiixNNpY7hAVg" name="pt" association="_o5bMzE9_EeiixNNpY7hAVg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_o5bM0U9_EeiixNNpY7hAVg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_o5bM0k9_EeiixNNpY7hAVg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_o5bM009_EeiixNNpY7hAVg" memberEnd="_o5bM1k9_EeiixNNpY7hAVg _o5bM109_EeiixNNpY7hAVg">
+      <eAnnotations xmi:id="_o5bM1E9_EeiixNNpY7hAVg" source="org.eclipse.papyrus">
+        <details xmi:id="_o5bM1U9_EeiixNNpY7hAVg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="_o5bM1k9_EeiixNNpY7hAVg" name="ctrl" association="_o5bM009_EeiixNNpY7hAVg"/>
+      <ownedEnd xmi:id="_o5bM109_EeiixNNpY7hAVg" name="pt" aggregation="shared" association="_o5bM009_EeiixNNpY7hAVg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_o5bM2E9_EeiixNNpY7hAVg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_o5bM2U9_EeiixNNpY7hAVg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_o5bM2k9_EeiixNNpY7hAVg" memberEnd="_o5bM3U9_EeiixNNpY7hAVg _o5bM4E9_EeiixNNpY7hAVg">
+      <eAnnotations xmi:id="_o5bM209_EeiixNNpY7hAVg" source="org.eclipse.papyrus">
+        <details xmi:id="_o5bM3E9_EeiixNNpY7hAVg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="_o5bM3U9_EeiixNNpY7hAVg" name="pf" type="_o5bMyE9_EeiixNNpY7hAVg" aggregation="shared" association="_o5bM2k9_EeiixNNpY7hAVg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_o5bM3k9_EeiixNNpY7hAVg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_o5bM309_EeiixNNpY7hAVg" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_o5bM4E9_EeiixNNpY7hAVg" name="cpt" association="_o5bM2k9_EeiixNNpY7hAVg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_o5bM4U9_EeiixNNpY7hAVg" memberEnd="_o5bM5E9_EeiixNNpY7hAVg _o5bM5U9_EeiixNNpY7hAVg">
+      <eAnnotations xmi:id="_o5bM4k9_EeiixNNpY7hAVg" source="org.eclipse.papyrus">
+        <details xmi:id="_o5bM409_EeiixNNpY7hAVg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="_o5bM5E9_EeiixNNpY7hAVg" name="po" type="_o5bMyE9_EeiixNNpY7hAVg" aggregation="shared" association="_o5bM4U9_EeiixNNpY7hAVg"/>
+      <ownedEnd xmi:id="_o5bM5U9_EeiixNNpY7hAVg" name="cpt" association="_o5bM4U9_EeiixNNpY7hAVg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_o5bM5k9_EeiixNNpY7hAVg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_o5bM509_EeiixNNpY7hAVg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_o5bM6E9_EeiixNNpY7hAVg" memberEnd="_o5bM609_EeiixNNpY7hAVg _o5bM7E9_EeiixNNpY7hAVg">
+      <eAnnotations xmi:id="_o5bM6U9_EeiixNNpY7hAVg" source="org.eclipse.papyrus">
+        <details xmi:id="_o5bM6k9_EeiixNNpY7hAVg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:id="_o5bM609_EeiixNNpY7hAVg" name="ctrl" association="_o5bM6E9_EeiixNNpY7hAVg"/>
+      <ownedEnd xmi:id="_o5bM7E9_EeiixNNpY7hAVg" name="tele" type="_o5bMxE9_EeiixNNpY7hAVg" association="_o5bM6E9_EeiixNNpY7hAVg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_o5bM7U9_EeiixNNpY7hAVg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_o5bM7k9_EeiixNNpY7hAVg" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_scUZoE-BEeiixNNpY7hAVg" name="enumPorte">
+      <ownedLiteral xmi:id="_o5bMkU9_EeiixNNpY7hAVg" name="PorteFermee"/>
+      <ownedLiteral xmi:id="_o5bMkk9_EeiixNNpY7hAVg" name="PorteOuverte"/>
+      <ownedLiteral xmi:id="_o5bMk09_EeiixNNpY7hAVg" name="PorteBloquee"/>
+      <ownedLiteral xmi:id="_o5bMlE9_EeiixNNpY7hAVg" name="mouvement"/>
+      <ownedLiteral xmi:id="_o5bMlU9_EeiixNNpY7hAVg" name="EnOuverture"/>
+      <ownedLiteral xmi:id="_o5bMlk9_EeiixNNpY7hAVg" name="PorteArretee"/>
+      <ownedLiteral xmi:id="_o5bMl09_EeiixNNpY7hAVg" name="EnFermeture"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_scUZoU-BEeiixNNpY7hAVg" name="enumControleurDePorte">
+      <ownedLiteral xmi:id="_o5bMmU9_EeiixNNpY7hAVg" name="Fermee"/>
+      <ownedLiteral xmi:id="_o5bMmk9_EeiixNNpY7hAVg" name="Mouvement"/>
+      <ownedLiteral xmi:id="_o5bMm09_EeiixNNpY7hAVg" name="EnOuverture"/>
+      <ownedLiteral xmi:id="_o5bMnE9_EeiixNNpY7hAVg" name="EnAttente"/>
+      <ownedLiteral xmi:id="_o5bMnU9_EeiixNNpY7hAVg" name="EnFermeture"/>
+      <ownedLiteral xmi:id="_o5bMnk9_EeiixNNpY7hAVg" name="PorteOuverte"/>
+      <ownedLiteral xmi:id="_o5bMn09_EeiixNNpY7hAVg" name="Urgence"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_scUZok-BEeiixNNpY7hAVg" name="enumMoteur">
+      <ownedLiteral xmi:id="_o5bMv09_EeiixNNpY7hAVg" name="Arret"/>
+      <ownedLiteral xmi:id="_o5bMwE9_EeiixNNpY7hAVg" name="Entiree"/>
+      <ownedLiteral xmi:id="_o5bMwU9_EeiixNNpY7hAVg" name="EnPoussee"/>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>

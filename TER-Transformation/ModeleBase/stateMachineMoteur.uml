@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_F-mf8E6kEeisuY5VSvjFAA" name="stateMachineMoteur">
-  <packageImport xmi:type="uml:PackageImport" xmi:id="_GNIEIE6kEeisuY5VSvjFAA">
+  <packageImport xmi:id="_GNIEIE6kEeisuY5VSvjFAA">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
   <packagedElement xmi:type="uml:StateMachine" xmi:id="_GClBAE6kEeisuY5VSvjFAA" name="Moteur">
-    <region xmi:type="uml:Region" xmi:id="_GDJBsE6kEeisuY5VSvjFAA" name="Region1">
-      <transition xmi:type="uml:Transition" xmi:id="_Lrr-kE6kEeisuY5VSvjFAA" name="stoppe" source="_J6zPwE6kEeisuY5VSvjFAA" target="_J6zPwE6kEeisuY5VSvjFAA"/>
-      <transition xmi:type="uml:Transition" xmi:id="_euuxsE6kEeisuY5VSvjFAA" name="pousser / pousser()" source="_J6zPwE6kEeisuY5VSvjFAA" target="_U8CvoE6kEeisuY5VSvjFAA"/>
-      <transition xmi:type="uml:Transition" xmi:id="_nEUjoE6kEeisuY5VSvjFAA" name="stoppe" source="_U8CvoE6kEeisuY5VSvjFAA" target="_J6zPwE6kEeisuY5VSvjFAA"/>
-      <transition xmi:type="uml:Transition" xmi:id="_o7sU8E6kEeisuY5VSvjFAA" name="stoppe" source="_Uive0E6kEeisuY5VSvjFAA" target="_J6zPwE6kEeisuY5VSvjFAA"/>
-      <transition xmi:type="uml:Transition" xmi:id="_q41-IE6kEeisuY5VSvjFAA" name="tirer / tirer()" source="_J6zPwE6kEeisuY5VSvjFAA" target="_Uive0E6kEeisuY5VSvjFAA"/>
+    <nestedClassifier xmi:type="uml:Stereotype" xmi:id="_7qVqsE97EeiixNNpY7hAVg" name="Actuator"/>
+    <region xmi:id="_GDJBsE6kEeisuY5VSvjFAA" name="Region1">
+      <transition xmi:id="_Lrr-kE6kEeisuY5VSvjFAA" name="stoppe" source="_J6zPwE6kEeisuY5VSvjFAA" target="_J6zPwE6kEeisuY5VSvjFAA"/>
+      <transition xmi:id="_euuxsE6kEeisuY5VSvjFAA" name="pousser / pousser()" source="_J6zPwE6kEeisuY5VSvjFAA" target="_U8CvoE6kEeisuY5VSvjFAA"/>
+      <transition xmi:id="_nEUjoE6kEeisuY5VSvjFAA" name="stoppe" source="_U8CvoE6kEeisuY5VSvjFAA" target="_J6zPwE6kEeisuY5VSvjFAA"/>
+      <transition xmi:id="_o7sU8E6kEeisuY5VSvjFAA" name="stoppe" source="_Uive0E6kEeisuY5VSvjFAA" target="_J6zPwE6kEeisuY5VSvjFAA"/>
+      <transition xmi:id="_q41-IE6kEeisuY5VSvjFAA" name="tirer / tirer()" source="_J6zPwE6kEeisuY5VSvjFAA" target="_Uive0E6kEeisuY5VSvjFAA"/>
       <subvertex xmi:type="uml:State" xmi:id="_J6zPwE6kEeisuY5VSvjFAA" name="Arret"/>
       <subvertex xmi:type="uml:State" xmi:id="_Uive0E6kEeisuY5VSvjFAA" name="Entiree"/>
       <subvertex xmi:type="uml:State" xmi:id="_U8CvoE6kEeisuY5VSvjFAA" name="EnPoussee"/>

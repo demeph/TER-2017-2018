@@ -4,11 +4,15 @@
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
   <packagedElement xmi:type="uml:StateMachine" xmi:id="_huklIEn9Eei7-_faPXZlQw" name="ControleurDePorte">
+    <nestedClassifier xmi:type="uml:Stereotype" xmi:id="_fc5PcE95EeiixNNpY7hAVg" name="CTRL"/>
     <region xmi:type="uml:Region" xmi:id="_h99E8En9Eei7-_faPXZlQw" name="Region1">
       <transition xmi:type="uml:Transition" xmi:id="_DjdKAEoAEei7-_faPXZlQw" name="urgence / pt.bloque" source="_dZOqoEn_Eei7-_faPXZlQw" target="_ASoScEoAEei7-_faPXZlQw"/>
-      <transition xmi:type="uml:Transition" xmi:id="_I1xGQEoCEei7-_faPXZlQw" name="ouvre / pt.ouvre" kind="local" source="_Dik1sEn_Eei7-_faPXZlQw" target="_eeHPEEn_Eei7-_faPXZlQw"/>
+      <transition xmi:type="uml:Transition" xmi:id="_I1xGQEoCEei7-_faPXZlQw" name="ouvre / pt.ouvre" kind="local" source="_Dik1sEn_Eei7-_faPXZlQw" target="_eeHPEEn_Eei7-_faPXZlQw">
+        <trigger xmi:type="uml:Trigger" xmi:id="_1VRWsE_WEeiMRYtcNc64_Q" name="pt.ouvre()"/>
+      </transition>
       <transition xmi:type="uml:Transition" xmi:id="_apOg0EoCEei7-_faPXZlQw" name="repriseCle / pt.reprend" source="_ASoScEoAEei7-_faPXZlQw" target="_I0CS0EoAEei7-_faPXZlQw"/>
       <transition xmi:type="uml:Transition" xmi:id="_IlupsEoDEei7-_faPXZlQw" source="_EcijkEn_Eei7-_faPXZlQw" target="_Dik1sEn_Eei7-_faPXZlQw"/>
+      <transition xmi:type="uml:Transition" xmi:id="_iWNuUE9rEeiixNNpY7hAVg" name="ferme / pt.ferme()" source="_0wHRgEn_Eei7-_faPXZlQw" target="_kC67cEn_Eei7-_faPXZlQw"/>
       <subvertex xmi:type="uml:State" xmi:id="_Dik1sEn_Eei7-_faPXZlQw" name="Fermee"/>
       <subvertex xmi:type="uml:Pseudostate" xmi:id="_EcijkEn_Eei7-_faPXZlQw" name="Initial2"/>
       <subvertex xmi:type="uml:State" xmi:id="_dZOqoEn_Eei7-_faPXZlQw" name="Mouvement">
@@ -18,6 +22,7 @@
           <transition xmi:type="uml:Transition" xmi:id="_1hC30EoCEei7-_faPXZlQw" name="ouvre / pt.ouvre" source="_gR9LQEn_Eei7-_faPXZlQw" target="_eeHPEEn_Eei7-_faPXZlQw"/>
           <transition xmi:type="uml:Transition" xmi:id="_89ATEEoCEei7-_faPXZlQw" name="ferme  / pt.ferme" source="_gR9LQEn_Eei7-_faPXZlQw" target="_kC67cEn_Eei7-_faPXZlQw"/>
           <transition xmi:type="uml:Transition" xmi:id="_Ak6N4EoDEei7-_faPXZlQw" name="ferme / pt.pause" source="_kC67cEn_Eei7-_faPXZlQw" target="_gR9LQEn_Eei7-_faPXZlQw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_gYSCAE9rEeiixNNpY7hAVg" name="contact(pf) / pt.fermee()" source="_kC67cEn_Eei7-_faPXZlQw" target="_Dik1sEn_Eei7-_faPXZlQw"/>
           <subvertex xmi:type="uml:State" xmi:id="_eeHPEEn_Eei7-_faPXZlQw" name="EnOuverture"/>
           <subvertex xmi:type="uml:State" xmi:id="_gR9LQEn_Eei7-_faPXZlQw" name="EnAttente"/>
           <subvertex xmi:type="uml:State" xmi:id="_kC67cEn_Eei7-_faPXZlQw" name="EnFermeture"/>

@@ -1,0 +1,12 @@
+-- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
+-- @atlcompiler atl2010
+
+module clean;
+create OUT : MM refining IN : MM;
+
+rule clean {
+	from
+		enum : MM!Enumeration (enum.ownedLiteral->isEmpty())
+	to 
+		drop
+}

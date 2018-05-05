@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <uml:Enumeration xmi:id="_QyfrIE4GEeiTdN58Ecso4w" name="enumPorte">
+    <nameExpression xmi:id="_cPYZgE-YEeim7od-5_kVZQ" name="test"/>
     <ownedLiteral xmi:id="_QyfrIU4GEeiTdN58Ecso4w" name="PorteFermee"/>
     <ownedLiteral xmi:id="_QyfrIk4GEeiTdN58Ecso4w" name="PorteOuverte"/>
     <ownedLiteral xmi:id="_QyfrI04GEeiTdN58Ecso4w" name="PorteBloquee"/>
@@ -92,6 +93,16 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QyfrZE4GEeiTdN58Ecso4w"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QyfrZU4GEeiTdN58Ecso4w" value="*"/>
       </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_s8pBAE-YEeim7od-5_kVZQ" name="enumPorte">
+      <nameExpression xmi:id="_s8pBAU-YEeim7od-5_kVZQ" name="test"/>
+      <ownedLiteral xmi:id="_s8pBAk-YEeim7od-5_kVZQ" name="PorteFermee"/>
+      <ownedLiteral xmi:id="_s8pBA0-YEeim7od-5_kVZQ" name="PorteOuverte"/>
+      <ownedLiteral xmi:id="_s8pBBE-YEeim7od-5_kVZQ" name="PorteBloquee"/>
+      <ownedLiteral xmi:id="_s8pBBU-YEeim7od-5_kVZQ" name="mouvement"/>
+      <ownedLiteral xmi:id="_s8pBBk-YEeim7od-5_kVZQ" name="EnOuverture"/>
+      <ownedLiteral xmi:id="_s8pBB0-YEeim7od-5_kVZQ" name="PorteArretee"/>
+      <ownedLiteral xmi:id="_s8pBCE-YEeim7od-5_kVZQ" name="EnFermeture"/>
     </packagedElement>
   </uml:Model>
 </xmi:XMI>

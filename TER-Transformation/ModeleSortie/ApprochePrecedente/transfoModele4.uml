@@ -12,8 +12,6 @@
       <ownedOperation xmi:id="_6xiHm07EEeiJvtnUL3crew" name="demandeFermeture" visibility="public"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_6xiHnE7EEeiJvtnUL3crew" name="ControleurDePorte">
-      <ownedAttribute xmi:id="_RZ0jEE7FEeiJvtnUL3crew" name="_etatCourant" type="_6xhgiE7EEeiJvtnUL3crew"/>
-      <ownedAttribute xmi:id="_RZ0jEU7FEeiJvtnUL3crew" name="_etatPrecedent" type="_6xhgiE7EEeiJvtnUL3crew"/>
       <ownedOperation xmi:id="_6xiHnU7EEeiJvtnUL3crew" name="ouvre" visibility="public"/>
       <ownedOperation xmi:id="_6xiHnk7EEeiJvtnUL3crew" name="ferme" visibility="public"/>
       <ownedOperation xmi:id="_6xiHn07EEeiJvtnUL3crew" name="enregistreContact" visibility="public"/>
@@ -25,8 +23,6 @@
       <ownedOperation xmi:id="_6xiHpE7EEeiJvtnUL3crew" name="contact" visibility="public"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_6xiHpU7EEeiJvtnUL3crew" name="Porte">
-      <ownedAttribute xmi:id="_RZ0jEk7FEeiJvtnUL3crew" name="_etatCourant" type="_6xhggE7EEeiJvtnUL3crew"/>
-      <ownedAttribute xmi:id="_RZ0jE07FEeiJvtnUL3crew" name="_etatPrecedent" type="_6xhggE7EEeiJvtnUL3crew"/>
       <ownedOperation xmi:id="_6xiHpk7EEeiJvtnUL3crew" name="ouvre" visibility="public"/>
       <ownedOperation xmi:id="_6xiHp07EEeiJvtnUL3crew" name="ferme" visibility="public"/>
       <ownedOperation xmi:id="_6xiHqE7EEeiJvtnUL3crew" name="pause" visibility="public"/>
@@ -36,8 +32,6 @@
       <ownedOperation xmi:id="_6xiHrE7EEeiJvtnUL3crew" name="reprend" visibility="public"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_6xiHrU7EEeiJvtnUL3crew" name="Moteur">
-      <ownedAttribute xmi:id="_RZ0jFE7FEeiJvtnUL3crew" name="_etatCourant" type="_6xiHk07EEeiJvtnUL3crew"/>
-      <ownedAttribute xmi:id="_RZ0jFU7FEeiJvtnUL3crew" name="_etatPrecedent" type="_6xiHk07EEeiJvtnUL3crew"/>
       <ownedOperation xmi:id="_6xiHrk7EEeiJvtnUL3crew" name="pousser" visibility="public"/>
       <ownedOperation xmi:id="_6xiHr07EEeiJvtnUL3crew" name="tirer" visibility="public"/>
       <ownedOperation xmi:id="_6xiHsE7EEeiJvtnUL3crew" name="stop" visibility="public"/>
@@ -93,7 +87,7 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6xiH1E7EEeiJvtnUL3crew" value="*"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Enumeration" xmi:id="_RZ0jFk7FEeiJvtnUL3crew" name="enumPorte">
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_6l3aUE-ZEeim7od-5_kVZQ" name="enumPorte">
       <ownedLiteral xmi:id="_6xhggU7EEeiJvtnUL3crew" name="PorteFermee"/>
       <ownedLiteral xmi:id="_6xhggk7EEeiJvtnUL3crew" name="PorteOuverte"/>
       <ownedLiteral xmi:id="_6xhgg07EEeiJvtnUL3crew" name="PorteBloquee"/>
@@ -102,7 +96,7 @@
       <ownedLiteral xmi:id="_6xhghk7EEeiJvtnUL3crew" name="PorteArretee"/>
       <ownedLiteral xmi:id="_6xhgh07EEeiJvtnUL3crew" name="EnFermeture"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Enumeration" xmi:id="_RZ0jF07FEeiJvtnUL3crew" name="enumControleurDePorte">
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_6l3aUU-ZEeim7od-5_kVZQ" name="enumControleurDePorte">
       <ownedLiteral xmi:id="_6xhgiU7EEeiJvtnUL3crew" name="Fermee"/>
       <ownedLiteral xmi:id="_6xhgik7EEeiJvtnUL3crew" name="Mouvement"/>
       <ownedLiteral xmi:id="_6xhgi07EEeiJvtnUL3crew" name="EnOuverture"/>
@@ -111,7 +105,7 @@
       <ownedLiteral xmi:id="_6xiHkU7EEeiJvtnUL3crew" name="PorteOuverte"/>
       <ownedLiteral xmi:id="_6xiHkk7EEeiJvtnUL3crew" name="Urgence"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Enumeration" xmi:id="_RZ0jGE7FEeiJvtnUL3crew" name="enumMoteur">
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_6l3aUk-ZEeim7od-5_kVZQ" name="enumMoteur">
       <ownedLiteral xmi:id="_6xiHlE7EEeiJvtnUL3crew" name="Arret"/>
       <ownedLiteral xmi:id="_6xiHlU7EEeiJvtnUL3crew" name="Entiree"/>
       <ownedLiteral xmi:id="_6xiHlk7EEeiJvtnUL3crew" name="EnPoussee"/>
