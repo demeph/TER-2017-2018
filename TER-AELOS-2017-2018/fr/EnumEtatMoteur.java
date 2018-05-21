@@ -1,4 +1,5 @@
-package fr.Domodoor;
+package fr;
+
 
 public enum EnumEtatMoteur {
 	Enpousee,

@@ -1,4 +1,5 @@
-package fr.Domodoor;
+package fr;
+
 import lejos.hardware.BrickFinder;
 import lejos.hardware.Button;
 import lejos.hardware.Key;
@@ -20,7 +21,7 @@ public class MainBeta {
 		EV3TouchSensor portFermet1 =  new EV3TouchSensor(SensorPort.S1);
 		
 		
-		Moteur mt = new MoteurSimple(new EV3LargeRegulatedMotor(MotorPort.A));
+		Moteur mt = new Moteur(new EV3LargeRegulatedMotor(MotorPort.A),20);
 		Porte pt = new Porte(mt);
 		final ControleurDePorte cp = new ControleurDePorte(pt,portOuverte1,portFermet1);
 		

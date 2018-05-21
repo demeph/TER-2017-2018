@@ -1,4 +1,5 @@
-package fr.Domodoor;
+package fr;
+
 import lejos.robotics.RegulatedMotor;
 
 /**
@@ -6,38 +7,52 @@ import lejos.robotics.RegulatedMotor;
  * @author Deme, Loic, Clément
  *
  */
-public class MoteurSimple extends Moteur {
-	private RegulatedMotor _mA;
+public class Moteur {
 	
-	public MoteurSimple(RegulatedMotor mA) {
-		super();
+	private EnumEtatMoteur _etat;
+	private RegulatedMotor _mA;
+	private int _vitesse;
+	
+	public Moteur(RegulatedMotor mA,int vitesse) {
 		this._mA = mA;
+		this._vitesse = vitesse;
+		this._mA.setSpeed(_vitesse);
 	}
 	
-	@Override
+
 	public	void pousser() {
-		_mA.setSpeed(50);
 		_mA.backward();
 		setEtat(EnumEtatMoteur.Enpousee);
 	}
 	
-	@Override
+
 	public void tirer() {
-		_mA.setSpeed(50);
 		_mA.forward();
 		setEtat(EnumEtatMoteur.Entiree);
 	}
 	
-	@Override
+
 	public void arreter() {
-		_mA.close();
+		_mA.stop();
 		setEtat(EnumEtatMoteur.Arret);
 	}
 	
-	@Override
 	public void stop() {
 		_mA.setSpeed(0);
 		_mA.stop();
 		setEtat(EnumEtatMoteur.Arret);
+	}
+	
+	
+	public void setEtat(EnumEtatMoteur a) {
+		this._etat = a;
+	}
+	
+	Moteur() {
+		this._etat = EnumEtatMoteur.Arret;
+	}
+
+	public EnumEtatMoteur getEtatMoteur(){
+		return this._etat;
 	}
 }

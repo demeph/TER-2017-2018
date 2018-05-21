@@ -1,4 +1,5 @@
-package fr.Domodoor;
+package fr;
+
 import lejos.hardware.BrickFinder;
 import lejos.hardware.ev3.EV3;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
@@ -7,7 +8,7 @@ import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3TouchSensor;
 
 
-public class CommunicationWithPC {
+public class MainCommunicationWithPC {
 
 	@SuppressWarnings({ "unused" })
 	public static void main(String[] args) {
@@ -22,8 +23,8 @@ public class CommunicationWithPC {
 			EV3TouchSensor portFermet2 =  new EV3TouchSensor(SensorPort.S3);
 			
 			
-			Moteur mt1 = new MoteurSimple(new EV3LargeRegulatedMotor(MotorPort.A));
-			Moteur mt2 = new MoteurSimple(new EV3LargeRegulatedMotor(MotorPort.B));
+			Moteur mt1 = new Moteur(new EV3LargeRegulatedMotor(MotorPort.A),20);
+			Moteur mt2 = new Moteur(new EV3LargeRegulatedMotor(MotorPort.B),20);
 			
 			Porte pt1 = new Porte(mt1);
 			Porte pt2 = new Porte(mt2);

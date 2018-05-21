@@ -1,4 +1,5 @@
-package fr.Domodoor;
+package fr;
+
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

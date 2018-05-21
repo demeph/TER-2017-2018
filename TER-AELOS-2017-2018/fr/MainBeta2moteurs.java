@@ -1,4 +1,5 @@
-package fr.Domodoor;
+package fr;
+
 import lejos.hardware.BrickFinder;
 import lejos.hardware.Button;
 import lejos.hardware.Key;
@@ -26,8 +27,8 @@ public class MainBeta2moteurs {
 				EV3TouchSensor portFermet2 =  new EV3TouchSensor(SensorPort.S3);
 				
 				
-				Moteur mt1 = new MoteurSimple(new EV3LargeRegulatedMotor(MotorPort.A));
-				Moteur mt2 = new MoteurSimple(new EV3LargeRegulatedMotor(MotorPort.B));
+				Moteur mt1 = new Moteur(new EV3LargeRegulatedMotor(MotorPort.A),20);
+				Moteur mt2 = new Moteur(new EV3LargeRegulatedMotor(MotorPort.B),20);
 				Porte pt1 = new Porte(mt1);
 				Porte pt2 = new Porte(mt2);
 				final ControleurDePorte cp1 = new ControleurDePorte(pt1,portOuverte1,portFermet1);
@@ -37,6 +38,7 @@ public class MainBeta2moteurs {
 				cp1.get_po().start();
 				cp2.get_po().start();
 				cp2.get_pf().start();
+				
 				Button.UP.addKeyListener(new KeyListener() {
 					
 					@Override

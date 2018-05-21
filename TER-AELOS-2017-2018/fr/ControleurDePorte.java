@@ -1,4 +1,5 @@
-package fr.Domodoor;
+package fr;
+
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.sensor.EV3TouchSensor;
 
@@ -167,7 +168,7 @@ public class ControleurDePorte
 	}
 	
 	
-	String traiterDemandeFermeture() {
+	public String traiterDemandeFermeture() {
 		String msg ="Rien a Faire";
 		try {
 			if (this._etatCourant.equals(EnumEtatControleur.EnFermeture)) {
@@ -189,7 +190,7 @@ public class ControleurDePorte
 		return msg;
 	}
 
-	String traiterDemandeOuverture() {
+	public String traiterDemandeOuverture() {
 		String msg ="Rien a Faire";
 		try {			
 			if (this._etatCourant.equals(EnumEtatControleur.EnOuverture)) {
