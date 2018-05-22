@@ -1,6 +1,6 @@
-package fr;
-
+package fr.Domodoor;
 import lejos.hardware.lcd.LCD;
+import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3TouchSensor;
 
 /**
@@ -29,22 +29,15 @@ public class Capteur extends Thread{
 	 */
 	void contact() {
 		while (true) {
-			
 			int size = this._touchSensor.sampleSize();
 			float[] sample = new float[size];
 			this._touchSensor.fetchSample(sample,0);
-			
 			if (sample[0] == 1.0) {
 				this._ctrl.enregristreContact(this);
 			}
-			
-			
-			if (this._ctrl.getPorte().getMt().get_etatPrec().equals(this._ctrl.getPorte().getMt().getEtatCourant())) {
-				System.out.println(this._ctrl.getPorte().getMt().getEtatCourant().toString());
-			}
-			LCD.setAutoRefresh(false);
-			
-
+			//LCD.clear();7
+			System.out.println(this._ctrl.getPorte().getMt().getEtatMoteur().toString());
+			//LCD.setAutoRefresh(false);
 		}
 	}
 	

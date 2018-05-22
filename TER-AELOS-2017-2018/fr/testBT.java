@@ -43,7 +43,8 @@ public class testBT {
 	{  
 		System.out.println("En attente de connexion");
 		BTConnector BTconnector = (BTConnector) Bluetooth.getNXTCommConnector();
-		BTConnect = (BTConnection) BTconnector.waitForConnection(10000, NXTConnection.RAW);
+		BTConnect = (BTConnection) BTconnector.waitForConnection(5000, NXTConnection.RAW);
+		
 		out = BTConnect.openDataOutputStream();
 		in = BTConnect.openDataInputStream();
 		
@@ -62,7 +63,7 @@ public class testBT {
             out.flush();
             Thread.sleep(1000);
         } catch (IOException e) {
-            e.printStackTrace();
+        	System.out.println("Impossible d'envoyer le message");
         }
 		
 	}
@@ -83,6 +84,7 @@ public class testBT {
 					
 					System.out.println("Appareil Autoriser");
 					
+					writeMessage((byte)-2);
 					boolean ecouteMessage= true;
 					while(ecouteMessage) {
 						try {
@@ -108,16 +110,16 @@ public class testBT {
 								   break;
 							}
 						} catch (IOException ioe) {
-							System.out.println("IO Exception readInt");
+							System.out.println("111");
 						}
 					}
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("rest");
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("120");
 			}
 	
 		
@@ -128,17 +130,12 @@ public class testBT {
 		System.out.println("On attend");
 		try {
 			out.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
 			in.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("134");;
 		}
-
+		
 	}
 
 }

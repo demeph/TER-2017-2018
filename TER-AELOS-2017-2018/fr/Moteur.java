@@ -9,7 +9,8 @@ import lejos.robotics.RegulatedMotor;
  */
 public class Moteur {
 	
-	private EnumEtatMoteur _etat;
+	private EnumEtatMoteur _etatCourant;
+	private EnumEtatMoteur _etatPrec;
 	private RegulatedMotor _mA;
 	private int _vitesse;
 	
@@ -17,42 +18,69 @@ public class Moteur {
 		this._mA = mA;
 		this._vitesse = vitesse;
 		this._mA.setSpeed(_vitesse);
+		_etatCourant = EnumEtatMoteur.Arret;
+		_etatPrec = _etatCourant;
 	}
 	
 
 	public	void pousser() {
-		_mA.backward();
-		setEtat(EnumEtatMoteur.Enpousee);
+		this._mA.setSpeed(_vitesse);
+		this._mA.backward();
+		_etatPrec = _etatCourant;
+		setEtatCourant(EnumEtatMoteur.Enpousee);
 	}
 	
 
 	public void tirer() {
-		_mA.forward();
-		setEtat(EnumEtatMoteur.Entiree);
+		this._mA.setSpeed(_vitesse);
+		this._mA.forward();
+		_etatPrec = _etatCourant;
+		setEtatCourant(EnumEtatMoteur.Entiree);
 	}
 	
+
+	public EnumEtatMoteur get_etatPrec() {
+		return _etatPrec;
+	}
+
+
+	public void set_etatPrec(EnumEtatMoteur _etatPrec) {
+		this._etatPrec = _etatPrec;
+	}
+
 
 	public void arreter() {
 		_mA.stop();
-		setEtat(EnumEtatMoteur.Arret);
+		_etatPrec = _etatCourant;
+		setEtatCourant(EnumEtatMoteur.Arret);
 	}
 	
 	public void stop() {
-		_mA.setSpeed(0);
 		_mA.stop();
-		setEtat(EnumEtatMoteur.Arret);
+		_etatPrec = _etatCourant;
+		setEtatCourant(EnumEtatMoteur.Arret);
 	}
 	
 	
-	public void setEtat(EnumEtatMoteur a) {
-		this._etat = a;
+	public RegulatedMotor get_mA() {
+		return _mA;
+	}
+
+
+	public void set_mA(RegulatedMotor _mA) {
+		this._mA = _mA;
+	}
+
+
+	public void setEtatCourant(EnumEtatMoteur a) {
+		this._etatCourant = a;
 	}
 	
 	Moteur() {
-		this._etat = EnumEtatMoteur.Arret;
+		this._etatCourant = EnumEtatMoteur.Arret;
 	}
 
-	public EnumEtatMoteur getEtatMoteur(){
-		return this._etat;
+	public EnumEtatMoteur getEtatCourant(){
+		return this._etatCourant;
 	}
 }
