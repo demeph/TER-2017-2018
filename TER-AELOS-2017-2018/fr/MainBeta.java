@@ -23,7 +23,7 @@ public class MainBeta {
 		
 		Moteur mt = new Moteur(new EV3LargeRegulatedMotor(MotorPort.A),20);
 		Porte pt = new Porte(mt);
-		final ControleurDePorte cp = new ControleurDePorte(pt,portOuverte1,portFermet1);
+		final ControleurDePorte cp = new ControleurDePorte(pt,portOuverte1,portFermet1,0,1);
 		
 		cp.get_pf().start();
 		cp.get_po().start();

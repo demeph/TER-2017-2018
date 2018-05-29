@@ -13,10 +13,12 @@ public class Capteur extends Thread{
 	private ControleurDePorte _ctrl;
 	private EnumCapteurType _typeCapteur;
 	private EV3TouchSensor _touchSensor;
+	private int _numCapt;
 
-	Capteur(EnumCapteurType typeCaptTactile,EV3TouchSensor touchSensor){
+	Capteur(EnumCapteurType typeCaptTactile,EV3TouchSensor touchSensor,int numCpat){
 			this._touchSensor = touchSensor;
 			this._typeCapteur = typeCaptTactile;
+			_numCapt = numCpat;
 	}
 	
 	@Override
@@ -38,11 +40,25 @@ public class Capteur extends Thread{
 				this._ctrl.enregristreContact(this);
 			}
 			
+			//LCD.clear();
+			if (_numCapt == 0) {
 			
-			if (this._ctrl.getPorte().getMt().get_etatPrec().equals(this._ctrl.getPorte().getMt().getEtatCourant())) {
-				System.out.println(this._ctrl.getPorte().getMt().getEtatCourant().toString());
+				
+				LCD.drawString("Ctrl_1_Ouv: " + this._ctrl.getPorte().getMt().getEtatCourant().toString(),0,4);			
+				LCD.setAutoRefresh(true);
+			} else if (_numCapt == 1) {
+				//LCD.clear();
+				LCD.drawString("Ctrl_1_Fer: " +this._ctrl.getPorte().getMt().getEtatCourant().toString(),0,5);			
+				LCD.setAutoRefresh(true);
+			} else if (_numCapt == 2) {
+				//LCD.clear();
+				LCD.drawString("Ctrl_2_Ouv: " +this._ctrl.getPorte().getMt().getEtatCourant().toString(),0,6);			
+				LCD.setAutoRefresh(false);
+			} else if (_numCapt == 3) {
+				//LCD.clear();
+				LCD.drawString("Ctrl_2_Fer: " +this._ctrl.getPorte().getMt().getEtatCourant().toString(),0,7);			
+				LCD.setAutoRefresh(false);
 			}
-			LCD.setAutoRefresh(false);
 			
 
 		}

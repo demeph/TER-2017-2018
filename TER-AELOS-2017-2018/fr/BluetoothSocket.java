@@ -35,7 +35,7 @@ public class BluetoothSocket extends Thread {
 		try {
 			
 			if ( !connect() ) {
-				
+					
 				//Cas de l'appareil non autorise
 				
 				System.out.println("Appareil non autorise");
@@ -46,55 +46,51 @@ public class BluetoothSocket extends Thread {
 				
 				// Cas Autorise
 				
-				System.out.println("Appareil Autoriser");
-				
+				System.out.println("Appareil : OK");
+			
 				boolean finConnexion = true;
 				
 				while(finConnexion) {
 					
 					try {
-						
+								
 						commande = in.readByte();
-						
+							
 						switch(commande) {	
-							// Ouvrir la porte
+			
 							case 1:
+							
 								_teleCommande.demandeOuverture();
-								System.out.println("Ouverture");
-						   		break;		   		
-						    // Fermer la porte
-						   case 2:
-							   _teleCommande.demandeFermeture();
-							   System.out.println("fermeture");
-							   break;						
-						   case 3 :
-							   finConnexion = false;
-							   System.out.println("Fermer");
-							   break;
-						   default:
-							   break;
+								break;		   		
+							
+							case 2:
+								
+								_teleCommande.demandeFermeture();
+								break;
+								
+							default:
+								break;
 						}
 					} catch (IOException ioe) {
-							System.out.println("IO Exception readInt");
-							
+						
+						System.out.println("IO Exception readInt");
+									
 					}
 				}
 			}
 			
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	
+		} catch (IOException e) {
 		
+			e.printStackTrace();
 			
+		} catch (InterruptedException e) {
 			
+			e.printStackTrace();
+		}	
 			
 		
 		System.out.println("Fermeture de l'application");
+		
 		try {
 			out.close();
 			in.close();
@@ -106,8 +102,23 @@ public class BluetoothSocket extends Thread {
 	}
 
 	
-	public boolean estAppareilAutorise(String macMobile) 
-	{		
+	
+	public boolean connect() throws InterruptedException, IOException
+	{  
+		BTConnector BTconnector = (BTConnector) Bluetooth.getNXTCommConnector();
+		
+		BTConnect = (BTConnection) BTconnector.waitForConnection(100000, NXTConnection.RAW);
+		
+		//permet envoyer l'information a l'appareil connecter
+		out = BTConnect.openDataOutputStream();
+		
+		//permet recevoir l'information a partir l'appareil connecter
+		in = BTConnect.openDataInputStream();
+		
+		// L'adresse de l'appareil qui veut se connecter
+		
+		String macMobile = in.readUTF();
+		
 		boolean estAutorise = false;
 		
 		for (int i = 0; i < this.lesAppareils.size(); i++) {
@@ -122,26 +133,6 @@ public class BluetoothSocket extends Thread {
 		}
 		
 		return estAutorise;
-	}
-	
-	public boolean connect() throws InterruptedException, IOException
-	{  
-		System.out.println("En attente de connexion");
-		
-		BTConnector BTconnector = (BTConnector) Bluetooth.getNXTCommConnector();
-		
-		BTConnect = (BTConnection) BTconnector.waitForConnection(10000, NXTConnection.RAW);
-		
-		out = BTConnect.openDataOutputStream();
-		
-		in = BTConnect.openDataInputStream();
-		
-		// L'adresse de l'appareil qui veut se connecter
-		
-		String bluetooth_code = in.readUTF();
-
-		
-		return estAppareilAutorise(bluetooth_code);
 		
 	}
 	

@@ -11,27 +11,37 @@ public class Telecommande2ctrl {
 		this._ctrl1 = ctrl1;
 		this._ctrl2 = ctrl2;
 	
-		this._ctrl1.get_pf().start();
-		this._ctrl1.get_po().start();
 		
-		this._ctrl2.get_pf().start();
-		this._ctrl2.get_po().start();
 	}
 	
 	void demandeOuverture() {
-		this._ctrl2.getPorte().getMt().get_mA().startSynchronization();
-		String msg1 = this._ctrl1.traiterDemandeOuverture();
-		String msg2 = this._ctrl2.traiterDemandeOuverture();
-		this._ctrl2.getPorte().getMt().get_mA().endSynchronization();
-		this._msgATransporte = msg1 +":" + msg2;						
+		CtrlOpenThread ctrlOpen1 = new CtrlOpenThread();
+		
+		ctrlOpen1.set_ctrl(_ctrl1);
+		
+		CtrlOpenThread ctrlOpen2 = new CtrlOpenThread();
+		
+		ctrlOpen2.set_ctrl(_ctrl2);
+		
+		ctrlOpen1.start();
+		ctrlOpen2.start();
+		
+		
 	}
 	
 	void demandeFermeture() {
-		this._ctrl2.getPorte().getMt().get_mA().startSynchronization();
-		String msg1 = this._ctrl1.traiterDemandeFermeture();
-		String msg2 = this._ctrl2.traiterDemandeFermeture();
-		this._ctrl2.getPorte().getMt().get_mA().endSynchronization();
-		this._msgATransporte = msg1 +":" + msg2;			
+		
+		CtrlCloseThread ctrlClose1 = new CtrlCloseThread();
+		
+		ctrlClose1.set_ctrl(_ctrl1);
+		
+		CtrlCloseThread ctrlClose2 = new CtrlCloseThread();
+		
+		ctrlClose2.set_ctrl(_ctrl2);
+		
+		ctrlClose1.start();
+		ctrlClose2.start();
+			
 	}
 
 	public ControleurDePorte get_ctrl1() {

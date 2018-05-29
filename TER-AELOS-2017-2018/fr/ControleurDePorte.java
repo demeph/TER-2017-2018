@@ -22,16 +22,16 @@ public class ControleurDePorte
 	private Capteur _pf;
 	
 	
-	public ControleurDePorte(Porte porte,EV3TouchSensor touchOuvert,EV3TouchSensor touchFerme)
+	public ControleurDePorte(Porte porte,EV3TouchSensor touchOuvert,EV3TouchSensor touchFerme,int nb1,int nb2)
 	{
 		this._etatPrecedant = null;
 		this._etatCourant = EnumEtatControleur.Fermee;
 		this._porte = porte;
 		
 		//initialisation des capteurs 
-		this._po = new Capteur(EnumCapteurType.capteurPourOuverture,touchOuvert);
+		this._po = new Capteur(EnumCapteurType.capteurPourOuverture,touchOuvert,nb1);
 		this._po.set_ctrl(this);
-		this._pf = new Capteur(EnumCapteurType.capteurPourFermeture,touchFerme);
+		this._pf = new Capteur(EnumCapteurType.capteurPourFermeture,touchFerme,nb2);
 		this._pf.set_ctrl(this);
 	}
 	
@@ -168,49 +168,47 @@ public class ControleurDePorte
 	}
 	
 	
-	public String traiterDemandeFermeture() {
-		String msg ="Rien a Faire";
+	public void traiterDemandeFermeture() {
+		//String msg ="Rien a Faire";
 		try {
 			if (this._etatCourant.equals(EnumEtatControleur.EnFermeture)) {
 				this._etatCourant = EnumEtatControleur.EnAttente;
 				this._porte.pause();
-				msg = "La fermeture de la porte est en attente";
+			//	msg = "La fermeture de la porte est en attente";
 			} else if (this._etatCourant.equals(EnumEtatControleur.Urgence)){
-				msg = "Action non autorise, la porte est bloque";
+				//msg = "Action non autorise, la porte est bloque";
 			} else if (this._etatCourant.equals(EnumEtatControleur.PorteOuverte)) {
 				ferme();
-				msg = "La porte est en fermeture";
+				//msg = "La porte est en fermeture";
 			} else if (this._etatCourant.equals(EnumEtatControleur.EnAttente)) {
 				ferme();
-				msg = "La porte reprend la fermeture";
+				//msg = "La porte reprend la fermeture";
 			}
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return msg;
 	}
 
-	public String traiterDemandeOuverture() {
-		String msg ="Rien a Faire";
+	public void traiterDemandeOuverture() {
+		//String msg ="Rien a Faire";
 		try {			
 			if (this._etatCourant.equals(EnumEtatControleur.EnOuverture)) {
 				_etatCourant = EnumEtatControleur.EnAttente;
 				this._porte.pause();
-				msg = "L'ouverture de la porte est en attente";
+			//	msg = "L'ouverture de la porte est en attente";
 			} else if (this._etatCourant.equals(EnumEtatControleur.Urgence)){
-				msg = "Action non autorise, la porte est bloque";
+				//msg = "Action non autorise, la porte est bloque";
 			} else if (this._etatCourant.equals(EnumEtatControleur.Fermee)) {
-				msg = "La porte est en ouverture";
+			//	msg = "La porte est en ouverture";
 				ouvre();			
 			} else if (this._etatCourant.equals(EnumEtatControleur.EnAttente)) {
-				msg = "La porte reprend l'ouverture";
+				//msg = "La porte reprend l'ouverture";
 				ouvre();
 			}
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
 		}
-		return msg;
 	}
 
 	public Capteur get_po() {
