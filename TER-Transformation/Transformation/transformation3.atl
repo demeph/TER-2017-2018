@@ -1,13 +1,13 @@
 -- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
 
-module transformation3;
+module transformation2;
 create OUT : MM refining IN : MM;
 
 
 rule CopieModel {
 	from
 		m1 : MM!Model,enum : MM!Enumeration
-	to 
+	to
 		m2 : MM!Model  (
 			name <- 'ModeleSortie',
 			packageImport <- m1.packageImport,
