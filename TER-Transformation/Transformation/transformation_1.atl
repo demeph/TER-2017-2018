@@ -1,7 +1,7 @@
 -- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
 -- @nsURI MM1=uri:http://www.eclipse.org/uml2/5.0.0/UML
 
-module transformation2;
+module transformation_1;
 create OUT : MM from IN : MM, IN1 : MM1;
 
 
@@ -138,7 +138,8 @@ rule CopieModel {
 	to 
 		m2 : MM!Model  (
 			name <- 'ModeleSortie',
-			packageImport <- m1.packageImport
+			packageImport <- m1.packageImport,
+			packagedElement <- m1.packagedElement
 		)
 }
 

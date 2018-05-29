@@ -1,6 +1,6 @@
 -- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
 
-module transformation2;
+module transformation_2;
 create OUT : MM refining IN : MM;
 
 

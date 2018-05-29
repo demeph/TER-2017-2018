@@ -1,7 +1,8 @@
 -- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
 -- @atlcompiler atl2010
 
-module clean;
+module transformation_3_clean;
+
 create OUT : MM refining IN : MM;
 
 rule clean {

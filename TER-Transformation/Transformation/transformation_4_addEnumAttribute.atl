@@ -1,6 +1,6 @@
 -- @nsURI MM=uri:http://www.eclipse.org/uml2/5.0.0/UML
 
-module addEnumAttribute;
+module transformation_4_addEnumAttribute;
 create OUT : MM refining IN : MM;
 
 rule addEnumAttribute {
