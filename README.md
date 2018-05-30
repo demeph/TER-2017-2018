@@ -4,7 +4,7 @@ Cette repesitorie correspond au projet de recherche *Automatiser la production l
 
 
 
-## Organisation##
+## Organisation
 
  Au total 4 branches differents qui correspond au different etape du projet.
 
