@@ -17,4 +17,4 @@ Cette repesitorie correspond au projet de recherche *Automatiser la production l
 
 ## Branche sprint_5
 
-​	Cette branche contient le projet d'un environnement du developpement *Android Studio* qui permet communiquer avec une application du sprint 2 *MainCommunicationWithBluetooth*.
+​	Cette branche contient le projet d'un environnement du developpement *Android Studio* qui permet communiquer avec une application du sprint 2 *MainCommunicationWithBluetooth* via un reseau sans-fil Bluetooth.
