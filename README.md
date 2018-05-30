@@ -22,7 +22,7 @@ Contient deux projets d'Eclipse different :
 
 
 
-###TER-AELOS-2017-2018
+### TER-AELOS-2017-2018
 
 ​	Projet Eclipse qui contient le code source pour le brick du robot Lego EV3. Ce projet contient 4 programmes principales :
 
