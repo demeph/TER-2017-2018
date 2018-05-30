@@ -22,50 +22,57 @@ Cette repesitorie correspond au projet de recherche *Automatiser la production l
   - .di : fichier correspondant au Papyrus Model pour modifier ou creer les diagrammes via un intefrace graphique
   - .notation : extension de *.di* pour visualiser les diagrammes des etats-transitions
   - .uml : le fichier XMI qui permet represente les diagrammes UML
-
 - ***ModeleSortie*** : dossier contient les modeles  obtenus via les transformations
 
 - ***Transformation*** : les regles *ATL* permettant transfromer les modeles
 
   - ***transformation_1.atl***  : transformation prenant en entree deux entrees : modele de base contenant diagramme de classe et de l'autre cote un diagramme d'etats transitions. Cette regle ATL est uilise plusieurs foix pour integrer plusieurs etats-transitions.
 
-    - transformation_1.atl : 
+    - mode ATL : from
 
-      - mode ATL : from
-      - ModeleBase/modelBase.uml et ModeleBase/stateChartePorte.uml -> ModeleSortie/transfoModele1.uml (ajout premiere enum de la porte)
-      - ModeleSortie/transfoModele1.uml et ModeleBase/stateCharteControleur.uml -> ModeleSortie/transfoModele2.uml (ajout premiere enum de la controleur)
-      - ModeleSortie/transfoModele2.uml et ModeleBase/stateCharteMoteur.uml -> ModeleSortie/transfoModele3.uml (ajout premiere enum de la moteur)
+    - **en entree** : ModeleBase/modelBase.uml et ModeleBase/stateChartePorte.uml 
 
-    - transformation_2.ATL :  deplacement des enumerations dans la partie Model
+      **en sortie** : ModeleSortie/transfoModele1.uml (ajout premiere enum de la porte)
 
-      - mode ATL : refining
+    - **en entree** : ModeleSortie/transfoModele1.uml et ModeleBase/stateCharteControleur.uml 
+
+      **en sortie** : ModeleSortie/transfoModele2.uml (ajout premiere enum de la controleur)
+
+    - **en entree** : ModeleSortie/transfoModele2.uml et ModeleBase/stateCharteMoteur.uml
+
+      **en sortie** : ModeleSortie/transfoModele3.uml (ajout premiere enum de la moteur)
+
+  - ***transformation_2.ATL*** :  deplacement des enumerations dans la partie Modele
+    - mode ATL : refining
+
       - ModeleSortie/transfoModele3.uml -> ModeleSortie/transfoModele4.uml
 
-    - transformation_3_clean.atl :  efface les traces des enum restees dans le fichier  ModeleSortie/transfoModele4.uml
+  - ***transformation_3_clean.atl*** :  efface les traces des enum restees dans le fichier  ModeleSortie/transfoModele4.uml
 
       - mode ATL : refining
-      -  ModeleSortie/transfoModele4.uml ->  ModeleSortie/transfoModele5.uml
 
-    - transformation_4_addEnumAttribute.atl : avant lancement de cette tranformation il faut intervenir et il faudra rajouter des stereotypes aux classes et use case aux enum.
+      - ModeleSortie/transfoModele4.uml ->  ModeleSortie/transfoModele5.uml
 
+  - ***transformation_4_addEnumAttribute.atl*** : avant lancement de cette tranformation il faut intervenir et il faudra rajouter des stereotypes aux classes et use case aux enum.
+          
       - Mode ATL : refining
-      - Classe et enumeration Porte
 
-        - class *Porte* :
+      - Classe et enumeration Porte
+        - class Porte :
           - stereotype : BehaviorDoor
-        - enumeration *enumPorte*
+        - enumeration enumPorte
           - use case : BehaviorDoor
+
       - Classe et enumeration ControleurDePorte 
         - classe ControleurDePorte
           - stereotype : BehaviorCTRL
         - enumeration enumControleurDePorte
           - use case : BehaviorCTRL
+
       - Classe et enumeration Moteur
         - classe Moteur
           - stereotype : BehaviorMotor
         - enumeration enumMoteur
           - use case : BehaviorMotor
-
-      Une fois stereotype et use case ajouter, on lance la regle ATL  :
-
-      ModeleSortie/transfoModele5.uml ->  ModeleSortie/transfoModele6.uml
+            Une fois stereotype et use case ajouter, on lance la regle ATL  :
+            ModeleSortie/transfoModele5.uml ->  ModeleSortie/transfoModele6.uml
